@@ -1,0 +1,5 @@
+{
+  "zones": ["greenhouse-A", "greenhouse-B"],
+  "tags_per_zone": 4,
+  "seed": 42
+}

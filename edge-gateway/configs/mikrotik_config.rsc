@@ -1,0 +1,1 @@
+# MikroTik bridge configuration placeholder
