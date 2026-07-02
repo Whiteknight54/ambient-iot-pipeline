@@ -1,0 +1,30 @@
+{
+  "run_at": "2026-07-02T15:33:09.199549+00:00",
+  "config": {
+    "zones": [
+      "greenhouse-A",
+      "greenhouse-B"
+    ],
+    "tags_per_zone": 5,
+    "poll_cycles": 10,
+    "poll_interval_s": 0.5,
+    "seed": 42
+  },
+  "gateway_stats": {
+    "accepted": 37,
+    "rejected_unknown_tag": 3,
+    "rejected_bad_auth": 0,
+    "rejected_malformed": 0,
+    "total_seen": 40
+  },
+  "publisher_stats": {
+    "total_published": 37,
+    "total_failed": 0,
+    "avg_latency_ms": 0.381,
+    "min_latency_ms": 0.107,
+    "max_latency_ms": 0.821,
+    "sample_count": 37
+  },
+  "run_duration_s": 5.06,
+  "throughput_msgs_per_s": 7.31
+}
