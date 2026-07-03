@@ -1,0 +1,2 @@
+run_id,run_at,zone_count,tags_per_zone,poll_cycles,total_seen,accepted,rejected_unknown_tag,rejected_bad_auth,rejected_malformed,total_published,avg_latency_ms,min_latency_ms,max_latency_ms,throughput_msgs_per_s,run_duration_s
+1,2026-07-02T15:33:09.199549+00:00,2,5,10,40,37,3,0,0,37,0.381,0.107,0.821,7.31,5.06

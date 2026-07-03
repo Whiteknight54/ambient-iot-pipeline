@@ -1,0 +1,11 @@
+tag_id,zone_id,asset_type,harvest_threshold
+a3b1799d0cce,greenhouse-A,Wiliot Gen3 Pixel (simulated),0.6
+bdd640fb7d62,greenhouse-A,Wiliot Gen3 Pixel (simulated),0.6
+392456de347a,greenhouse-A,Wiliot Gen3 Pixel (simulated),0.6
+6c0311990f41,greenhouse-A,Wiliot Gen3 Pixel (simulated),0.6
+17fc695a771f,greenhouse-A,Wiliot Gen3 Pixel (simulated),0.6
+8b8148f670dd,greenhouse-B,Wiliot Gen3 Pixel (simulated),0.6
+de8a774b51be,greenhouse-B,Wiliot Gen3 Pixel (simulated),0.6
+b2b9437aae35,greenhouse-B,Wiliot Gen3 Pixel (simulated),0.6
+472293896e3d,greenhouse-B,Wiliot Gen3 Pixel (simulated),0.6
+562b0f792f7c,greenhouse-B,Wiliot Gen3 Pixel (simulated),0.6
