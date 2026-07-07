@@ -313,7 +313,3 @@ Full reference list in dissertation report.
 | — | Evaluation metrics captured | ✅ |
 | — | AWS deployment (IoT Core wiring) | 🔲 Pending |
 | — | Dissertation report | 🔲 In progress |
-
----
-
-*Submission deadline: 3 September 2026, 14:00 UTC — University of the West of England*
