@@ -3,8 +3,8 @@
 **A Strategic Framework and Technical Artefact for Secure Big Data Ingestion of Ambient IoT in Cloud-Native Environments**
 
 MSc Information Technology — UFCF9Y-60-M CSCT Masters Project
-Student: Oyinlayefa Mezeh (25053829) | University of the West of England, Bristol
-Supervisor: Dr. Rachel Long | Submission: 3 September 2026
+Student: ________ (______) | University of the West of England, Bristol
+Supervisor: _________ | Submission: 3 September 2026
 
 ---
 
