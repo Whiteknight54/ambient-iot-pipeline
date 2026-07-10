@@ -182,7 +182,7 @@ def generate() -> tuple[list[dict], dict[str, list]]:
 
                 if not transmitted:
                     flat_rows.append({
-                        "timestamp": dt.isoformat(), "day_of_week": dt.strftime("%A"),
+                        "timestamp": dt.strftime("%Y-%m-%d %H:%M:%S"), "day_of_week": dt.strftime("%A"),
                         "hour": hour, "zone": zone, "tag_id": tag_id,
                         "metric": "temperature_c", "value": "",
                         "classification": "NO_TRANSMISSION", "alert": False,
@@ -211,7 +211,7 @@ def generate() -> tuple[list[dict], dict[str, list]]:
                 co2_oh     = round(total_tx * AMBIENT_CO2_PER_READING_G, 4)
 
                 flat_rows.append({
-                    "timestamp": dt.isoformat(), "day_of_week": dt.strftime("%A"),
+                    "timestamp": dt.strftime("%Y-%m-%d %H:%M:%S"), "day_of_week": dt.strftime("%A"),
                     "hour": hour, "zone": zone, "tag_id": tag_id,
                     "metric": metric, "value": value,
                     "classification": classification, "alert": alert,
@@ -222,7 +222,7 @@ def generate() -> tuple[list[dict], dict[str, list]]:
 
                 fact_telemetry.append({
                     "reading_id": reading_id,
-                    "timestamp": dt.isoformat(),
+                    "timestamp": dt.strftime("%Y-%m-%d %H:%M:%S"),
                     "hour": hour,
                     "day_of_week": dt.strftime("%A"),
                     "zone": zone,
