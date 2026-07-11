@@ -1,0 +1,2 @@
+-r perception-layer/requirements.txt
+paho-mqtt>=2.1

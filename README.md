@@ -186,7 +186,12 @@ sudo apt install mosquitto mosquitto-clients
 
 ### Install dependencies
 ```bash
-pip install paho-mqtt
+python -m pip install -r requirements.txt
+```
+
+Windows bootstrap:
+```powershell
+scripts\\bootstrap.ps1
 ```
 
 ### Run the full pipeline
