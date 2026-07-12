@@ -23,8 +23,10 @@ from __future__ import annotations
 
 import json
 import logging
+import ssl
 import time
 from dataclasses import dataclass, field
+from pathlib import Path
 
 import paho.mqtt.client as mqtt
 
@@ -75,11 +77,13 @@ class MQTTPublisher:
     """
     Wraps paho-mqtt to publish authenticated gateway messages.
 
-    Broker config defaults to localhost:1883 (Mosquitto, no auth) for
-    local development. In production this swaps to AWS IoT Core endpoint
-    with TLS client certificates -- the interface stays the same, only
-    the config changes. That swap is intentional: it lets us prove the
-    local pipeline fully before touching cloud infrastructure.
+    Supports two modes:
+      Local (Mosquitto) : broker_host=localhost, port=1883, no TLS
+      AWS IoT Core      : broker_host=<endpoint>, port=8883, TLS certs
+
+    The interface is identical in both modes -- only the constructor
+    arguments change. This is the Staged Deployment Strategy: prove
+    everything locally first, then swap to AWS by changing config only.
     """
 
     def __init__(
@@ -88,10 +92,16 @@ class MQTTPublisher:
         broker_port: int = 1883,
         client_id: str = "aiot-edge-gateway",
         qos: int = 1,
+        tls_cert: str | None = None,
+        tls_key: str | None = None,
+        tls_ca: str | None = None,
     ):
         self.broker_host = broker_host
         self.broker_port = broker_port
         self.qos = qos
+        self.tls_cert = tls_cert
+        self.tls_key = tls_key
+        self.tls_ca = tls_ca
         self.metrics = PublisherMetrics()
 
         self._client = mqtt.Client(client_id=client_id)
@@ -111,9 +121,19 @@ class MQTTPublisher:
 
     def connect(self) -> bool:
         try:
+            # Configure TLS if certificates are provided (AWS IoT Core mode)
+            if self.tls_cert and self.tls_key and self.tls_ca:
+                self._client.tls_set(
+                    ca_certs=self.tls_ca,
+                    certfile=self.tls_cert,
+                    keyfile=self.tls_key,
+                    tls_version=ssl.PROTOCOL_TLS_CLIENT,
+                )
+                logger.info("TLS configured for AWS IoT Core")
+
             self._client.connect(self.broker_host, self.broker_port, keepalive=60)
             self._client.loop_start()
-            deadline = time.time() + 3
+            deadline = time.time() + 5
             while not self._connected and time.time() < deadline:
                 time.sleep(0.05)
             return self._connected
