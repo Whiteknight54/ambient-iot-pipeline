@@ -39,6 +39,8 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+import boto3
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -133,6 +135,20 @@ def _write_local(result: dict) -> None:
         f.write(json.dumps(result) + "\n")
 
 
+def _write_dynamodb(result: dict) -> None:
+    """Write processed record to DynamoDB hot store."""
+    table_name = os.environ.get("DYNAMODB_TABLE", "aiot-telemetry")
+    dynamodb   = boto3.resource("dynamodb", region_name="eu-west-2")
+    table      = dynamodb.Table(table_name)
+    # DynamoDB requires string/number types — convert booleans
+    item = {k: str(v) if isinstance(v, bool) else v for k, v in result.items()}
+    # Ensure required keys exist
+    item["tag_id"]    = result.get("tag_id", "unknown")
+    item["timestamp"] = result.get("processed_at", datetime.now(timezone.utc).isoformat())
+    table.put_item(Item=item)
+    logger.info("written to DynamoDB table=%s tag=%s", table_name, item["tag_id"])
+
+
 def handler(event: dict, context=None) -> dict:
     """
     AWS Lambda entry point.
@@ -145,10 +161,10 @@ def handler(event: dict, context=None) -> dict:
         payload = _parse_payload(event)
         result  = process(payload)
 
-        # Production: uncomment and set DYNAMODB_TABLE env var
-        # dynamodb.Table(os.environ["DYNAMODB_TABLE"]).put_item(Item=result)
-
-        if not os.environ.get("AWS_EXECUTION_ENV"):
+        # Write to DynamoDB when running on AWS
+        if os.environ.get("AWS_EXECUTION_ENV"):
+            _write_dynamodb(result)
+        else:
             _write_local(result)
 
         return {"statusCode": 200, "body": json.dumps(result)}

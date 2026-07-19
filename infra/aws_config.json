@@ -1,0 +1,14 @@
+{
+  "region": "eu-west-2",
+  "endpoint": "a2f7tdbrmlxjya-ats.iot.eu-west-2.amazonaws.com",
+  "thing_name": "aiot-edge-gateway",
+  "thing_arn": "arn:aws:iot:eu-west-2:255195626087:thing/aiot-edge-gateway",
+  "certificate_arn": "arn:aws:iot:eu-west-2:255195626087:cert/d562dc09be7c86c2155f1fcacb597072f1e3acc31f0140011ef25b1dc49e3131",
+  "cert_file": "/Users/layefamezeh/Downloads/ambient-iot-pipeline/infra/certs/device.pem.crt",
+  "key_file": "/Users/layefamezeh/Downloads/ambient-iot-pipeline/infra/certs/private.pem.key",
+  "ca_file": "/Users/layefamezeh/Downloads/ambient-iot-pipeline/infra/certs/AmazonRootCA1.pem",
+  "hot_lambda_arn": "arn:aws:lambda:eu-west-2:255195626087:function:aiot-hot-path",
+  "cold_lambda_arn": "arn:aws:lambda:eu-west-2:255195626087:function:aiot-cold-path",
+  "mqtt_topic": "aiot/telemetry",
+  "mqtt_port": 8883
+}

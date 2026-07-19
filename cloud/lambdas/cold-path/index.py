@@ -26,6 +26,7 @@ Power BI then connects to S3 (or the local CSV) to build the
 from __future__ import annotations
 
 import csv
+import io
 import json
 import logging
 import os
@@ -34,6 +35,8 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 from statistics import mean, stdev
+
+import boto3
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -132,6 +135,31 @@ def _write_csv(summaries: list[dict], output_path: Path) -> None:
     logger.info("wrote %d rows to %s", len(summaries), output_path)
 
 
+def _write_s3(summaries: list[dict]) -> str:
+    """Write aggregated CSV to S3 cold store. Returns the S3 key."""
+    bucket  = os.environ.get("S3_BUCKET", "aiot-cold-store-255195626087")
+    s3      = boto3.client("s3", region_name="eu-west-2")
+    date    = datetime.now(timezone.utc).strftime("%Y/%m/%d")
+    ts      = datetime.now(timezone.utc).strftime("%H%M%S")
+    key     = f"aggregates/{date}/cold_path_{ts}.csv"
+
+    # Build CSV in memory
+    buf = io.StringIO()
+    writer = csv.DictWriter(buf, fieldnames=CSV_HEADERS)
+    writer.writeheader()
+     for row in summaries:
+        writer.writerow({k: row.get(k, "") for k in CSV_HEADERS})
+
+    s3.put_object(
+        Bucket=bucket,
+        Key=key,
+        Body=buf.getvalue().encode("utf-8"),
+        ContentType="text/csv",
+    )
+    logger.info("written to s3://%s/%s", bucket, key)
+    return f"s3://{bucket}/{key}"
+
+
 def handler(event: dict, context=None) -> dict:
     """
     AWS Lambda entry point.
@@ -146,20 +174,19 @@ def handler(event: dict, context=None) -> dict:
 
         summaries = aggregate(records)
 
-        # Production: uncomment and set S3_BUCKET env var
-        # s3.put_object(Bucket=os.environ["S3_BUCKET"],
-        #               Key=f"aggregates/{datetime.utcnow().date()}.csv",
-        #               Body=csv_bytes)
-
-        if not os.environ.get("AWS_EXECUTION_ENV"):
+        # Write to S3 when running on AWS, local CSV otherwise
+        if os.environ.get("AWS_EXECUTION_ENV"):
+            output = _write_s3(summaries)
+        else:
             _write_csv(summaries, COLD_PATH_OUTPUT)
+            output = str(COLD_PATH_OUTPUT)
 
         return {
             "statusCode": 200,
             "body": json.dumps({
                 "records_processed": len(records),
                 "summaries_written": len(summaries),
-                "output": str(COLD_PATH_OUTPUT),
+                "output": output,
             }),
         }
 
