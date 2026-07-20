@@ -37,6 +37,7 @@ import logging
 import os
 import time
 from datetime import datetime, timezone
+from decimal import Decimal
 from pathlib import Path
 
 import boto3
@@ -140,8 +141,11 @@ def _write_dynamodb(result: dict) -> None:
     table_name = os.environ.get("DYNAMODB_TABLE", "aiot-telemetry")
     dynamodb   = boto3.resource("dynamodb", region_name="eu-west-2")
     table      = dynamodb.Table(table_name)
-    # DynamoDB requires string/number types — convert booleans
-    item = {k: str(v) if isinstance(v, bool) else v for k, v in result.items()}
+    # DynamoDB requires Decimal instead of float for numeric values.
+    item = {
+        k: Decimal(str(v)) if isinstance(v, float) else str(v) if isinstance(v, bool) else v
+        for k, v in result.items()
+    }
     # Ensure required keys exist
     item["tag_id"]    = result.get("tag_id", "unknown")
     item["timestamp"] = result.get("processed_at", datetime.now(timezone.utc).isoformat())
