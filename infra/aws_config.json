@@ -10,5 +10,7 @@
   "hot_lambda_arn": "arn:aws:lambda:eu-west-2:255195626087:function:aiot-hot-path",
   "cold_lambda_arn": "arn:aws:lambda:eu-west-2:255195626087:function:aiot-cold-path",
   "mqtt_topic": "aiot/telemetry",
-  "mqtt_port": 8883
+  "mqtt_port": 8883,
+  "s3_bucket": "aiot-cold-store-255195626087",
+  "dynamodb_table": "aiot-telemetry"
 }

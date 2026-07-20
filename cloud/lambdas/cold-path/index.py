@@ -147,7 +147,7 @@ def _write_s3(summaries: list[dict]) -> str:
     buf = io.StringIO()
     writer = csv.DictWriter(buf, fieldnames=CSV_HEADERS)
     writer.writeheader()
-     for row in summaries:
+    for row in summaries:
         writer.writerow({k: row.get(k, "") for k in CSV_HEADERS})
 
     s3.put_object(

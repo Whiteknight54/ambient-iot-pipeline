@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-07-14T08:58:30.992035+00:00",
+  "run_at": "2026-07-20T01:12:38.490192+00:00",
   "target": "aws_iot_core",
   "endpoint": "a2f7tdbrmlxjya-ats.iot.eu-west-2.amazonaws.com",
   "region": "eu-west-2",
@@ -22,9 +22,9 @@
   "publisher_stats": {
     "total_published": 37,
     "total_failed": 0,
-    "avg_latency_ms": 0.391,
-    "min_latency_ms": 0.083,
-    "max_latency_ms": 0.649,
+    "avg_latency_ms": 0.528,
+    "min_latency_ms": 0.106,
+    "max_latency_ms": 0.996,
     "sample_count": 37
   },
   "run_duration_s": 5.05,
