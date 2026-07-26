@@ -1,0 +1,2107 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20261.26.0226.1626                               -->
+<workbook original-version='18.1' source-build='2026.1.0 (20261.26.0226.1626)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <_.fcp.DashboardRoundedCorners.true...DashboardRoundedCorners />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <ParameterAction />
+    <ParameterActionClearSelection />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='AxisEnd' datatype='real' name='[AxisEnd]' param-domain-type='any' role='measure' type='quantitative' value='22.018403755868547'>
+        <calculation class='tableau' formula='22.018403755868547' />
+      </column>
+    </datasource>
+    <datasource caption='cold_path_live' inline='true' name='federated.08qakk609ht89h10bqf281key2lu' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cold_path_live' name='textscan.05js8h50rk4ryb1g7224z111rilm'>
+            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi' filename='cold_path_live.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.05js8h50rk4ryb1g7224z111rilm' name='cold_path_live.csv' table='[cold_path_live#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='string' name='aggregated_at' ordinal='0' />
+            <column datatype='string' name='zone' ordinal='1' />
+            <column datatype='string' name='metric' ordinal='2' />
+            <column datatype='integer' name='reading_count' ordinal='3' />
+            <column datatype='real' name='avg_value' ordinal='4' />
+            <column datatype='real' name='min_value' ordinal='5' />
+            <column datatype='real' name='max_value' ordinal='6' />
+            <column datatype='real' name='stddev_value' ordinal='7' />
+            <column datatype='integer' name='alert_count' ordinal='8' />
+            <column datatype='real' name='alert_rate_pct' ordinal='9' />
+            <column datatype='real' name='avg_total_latency_ms' ordinal='10' />
+            <column datatype='real' name='max_total_latency_ms' ordinal='11' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>aggregated_at</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[aggregated_at]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>aggregated_at</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>zone</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[zone]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>zone</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>metric</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[metric]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>metric</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reading_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[reading_count]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>reading_count</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_value]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>avg_value</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[min_value]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>min_value</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_value]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>max_value</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>stddev_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[stddev_value]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>stddev_value</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>alert_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[alert_count]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>alert_count</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>alert_rate_pct</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[alert_rate_pct]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>alert_rate_pct</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_total_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_total_latency_ms]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>avg_total_latency_ms</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_total_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_total_latency_ms]</local-name>
+            <parent-name>[cold_path_live.csv]</parent-name>
+            <remote-alias>max_total_latency_ms</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='cold_path_live.csv' datatype='table' name='[__tableau_internal_object_id__].[cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E]' role='measure' type='quantitative' />
+      <column caption='Aggregated At' datatype='string' name='[aggregated_at]' role='dimension' type='nominal' />
+      <column caption='Alert Count' datatype='integer' name='[alert_count]' role='measure' type='quantitative' />
+      <column caption='Alert Rate Pct' datatype='real' name='[alert_rate_pct]' role='measure' type='quantitative' />
+      <column caption='Avg Total Latency Ms' datatype='real' name='[avg_total_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Avg Value' datatype='real' name='[avg_value]' role='measure' type='quantitative' />
+      <column caption='Max Total Latency Ms' datatype='real' name='[max_total_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Max Value' datatype='real' name='[max_value]' role='measure' type='quantitative' />
+      <column caption='Metric' datatype='string' name='[metric]' role='dimension' type='nominal' />
+      <column caption='Min Value' datatype='real' name='[min_value]' role='measure' type='quantitative' />
+      <column caption='Reading Count' datatype='integer' name='[reading_count]' role='measure' type='quantitative' />
+      <column caption='Stddev Value' datatype='real' name='[stddev_value]' role='measure' type='quantitative' />
+      <column caption='Zone' datatype='string' name='[zone]' role='dimension' type='nominal' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='cold_path_live.csv' id='cold_path_live.csv_04698CB8AE36439392C84D41155CEF2E'>
+            <properties context=''>
+              <relation connection='textscan.05js8h50rk4ryb1g7224z111rilm' name='cold_path_live.csv' table='[cold_path_live#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='aggregated_at' ordinal='0' />
+                  <column datatype='string' name='zone' ordinal='1' />
+                  <column datatype='string' name='metric' ordinal='2' />
+                  <column datatype='integer' name='reading_count' ordinal='3' />
+                  <column datatype='real' name='avg_value' ordinal='4' />
+                  <column datatype='real' name='min_value' ordinal='5' />
+                  <column datatype='real' name='max_value' ordinal='6' />
+                  <column datatype='real' name='stddev_value' ordinal='7' />
+                  <column datatype='integer' name='alert_count' ordinal='8' />
+                  <column datatype='real' name='alert_rate_pct' ordinal='9' />
+                  <column datatype='real' name='avg_total_latency_ms' ordinal='10' />
+                  <column datatype='real' name='max_total_latency_ms' ordinal='11' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' inline='true' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Fact_Gateway_Metrics' name='textscan.0jxz92w0qvjuf81f7nakp09n83ae'>
+            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Fact_Gateway_Metrics.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='Dim_Zone' name='textscan.1wb8w1y0obti161gajj9e10dbw19'>
+            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Dim_Zone.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='Fact_Telemetry' name='textscan.1iptur10hmvor212y7ri519iwvac'>
+            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Fact_Telemetry.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='Dim_Tag' name='textscan.1fgb4hk0499w0o1bg1idh1tihibj'>
+            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Dim_Tag.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.1iptur10hmvor212y7ri519iwvac' name='Fact_Telemetry.csv' table='[Fact_Telemetry#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='reading_id' ordinal='0' />
+              <column datatype='datetime' date-parse-format='yyyy-dd-MM&apos;T&apos;HH:mm:ssZZZZZ' name='timestamp' ordinal='1' />
+              <column datatype='integer' name='hour' ordinal='2' />
+              <column datatype='string' name='day_of_week' ordinal='3' />
+              <column datatype='string' name='zone' ordinal='4' />
+              <column datatype='string' name='tag_id' ordinal='5' />
+              <column datatype='string' name='metric' ordinal='6' />
+              <column datatype='real' name='value' ordinal='7' />
+              <column datatype='string' name='classification' ordinal='8' />
+              <column datatype='boolean' name='alert' ordinal='9' />
+              <column datatype='real' name='pipeline_latency_ms' ordinal='10' />
+              <column datatype='real' name='battery_co2_saved_g' ordinal='11' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1iptur10hmvor212y7ri519iwvac' name='Dim_Tag.csv' table='[Dim_Tag#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='tag_id' ordinal='0' />
+              <column datatype='string' name='zone_id' ordinal='1' />
+              <column datatype='string' name='asset_type' ordinal='2' />
+              <column datatype='real' name='harvest_threshold' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.1iptur10hmvor212y7ri519iwvac' name='Dim_Zone.csv' table='[Dim_Zone#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='zone_id' ordinal='0' />
+              <column datatype='string' name='location' ordinal='1' />
+              <column datatype='string' name='optimal_temp_range' ordinal='2' />
+              <column datatype='real' name='base_temp_c' ordinal='3' />
+              <column datatype='real' name='rssi_base_dbm' ordinal='4' />
+              <column datatype='string' name='asset_type' ordinal='5' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[alert]' value='[Fact_Telemetry.csv].[alert]' />
+          <map key='[asset_type (Dim_Tag.csv)]' value='[Dim_Tag.csv].[asset_type]' />
+          <map key='[asset_type]' value='[Dim_Zone.csv].[asset_type]' />
+          <map key='[base_temp_c]' value='[Dim_Zone.csv].[base_temp_c]' />
+          <map key='[battery_co2_saved_g]' value='[Fact_Telemetry.csv].[battery_co2_saved_g]' />
+          <map key='[classification]' value='[Fact_Telemetry.csv].[classification]' />
+          <map key='[day_of_week]' value='[Fact_Telemetry.csv].[day_of_week]' />
+          <map key='[harvest_threshold]' value='[Dim_Tag.csv].[harvest_threshold]' />
+          <map key='[hour]' value='[Fact_Telemetry.csv].[hour]' />
+          <map key='[location]' value='[Dim_Zone.csv].[location]' />
+          <map key='[metric]' value='[Fact_Telemetry.csv].[metric]' />
+          <map key='[optimal_temp_range]' value='[Dim_Zone.csv].[optimal_temp_range]' />
+          <map key='[pipeline_latency_ms]' value='[Fact_Telemetry.csv].[pipeline_latency_ms]' />
+          <map key='[reading_id]' value='[Fact_Telemetry.csv].[reading_id]' />
+          <map key='[rssi_base_dbm]' value='[Dim_Zone.csv].[rssi_base_dbm]' />
+          <map key='[tag_id (Dim_Tag.csv)]' value='[Dim_Tag.csv].[tag_id]' />
+          <map key='[tag_id]' value='[Fact_Telemetry.csv].[tag_id]' />
+          <map key='[timestamp]' value='[Fact_Telemetry.csv].[timestamp]' />
+          <map key='[value]' value='[Fact_Telemetry.csv].[value]' />
+          <map key='[zone]' value='[Fact_Telemetry.csv].[zone]' />
+          <map key='[zone_id (Dim_Tag.csv)]' value='[Dim_Tag.csv].[zone_id]' />
+          <map key='[zone_id]' value='[Dim_Zone.csv].[zone_id]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Dim_Tag.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Dim_Zone.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reading_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[reading_id]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>reading_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>timestamp</remote-name>
+            <remote-type>7</remote-type>
+            <local-name>[timestamp]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>timestamp</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hour</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[hour]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>hour</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>day_of_week</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[day_of_week]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>day_of_week</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>zone</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[zone]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>zone</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tag_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tag_id]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>tag_id</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>metric</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[metric]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>metric</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[value]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>value</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>classification</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[classification]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>classification</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>alert</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[alert]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>alert</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pipeline_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pipeline_latency_ms]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>pipeline_latency_ms</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>battery_co2_saved_g</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[battery_co2_saved_g]</local-name>
+            <parent-name>[Fact_Telemetry.csv]</parent-name>
+            <remote-alias>battery_co2_saved_g</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tag_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[tag_id (Dim_Tag.csv)]</local-name>
+            <parent-name>[Dim_Tag.csv]</parent-name>
+            <remote-alias>tag_id</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Dim_Tag.csv_D4F9E9C349A64AFEAA4C372C1CBF3C4D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>zone_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[zone_id (Dim_Tag.csv)]</local-name>
+            <parent-name>[Dim_Tag.csv]</parent-name>
+            <remote-alias>zone_id</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Dim_Tag.csv_D4F9E9C349A64AFEAA4C372C1CBF3C4D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>asset_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[asset_type (Dim_Tag.csv)]</local-name>
+            <parent-name>[Dim_Tag.csv]</parent-name>
+            <remote-alias>asset_type</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Dim_Tag.csv_D4F9E9C349A64AFEAA4C372C1CBF3C4D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>harvest_threshold</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[harvest_threshold]</local-name>
+            <parent-name>[Dim_Tag.csv]</parent-name>
+            <remote-alias>harvest_threshold</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Dim_Tag.csv_D4F9E9C349A64AFEAA4C372C1CBF3C4D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>zone_id</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[zone_id]</local-name>
+            <parent-name>[Dim_Zone.csv]</parent-name>
+            <remote-alias>zone_id</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>location</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[location]</local-name>
+            <parent-name>[Dim_Zone.csv]</parent-name>
+            <remote-alias>location</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>optimal_temp_range</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[optimal_temp_range]</local-name>
+            <parent-name>[Dim_Zone.csv]</parent-name>
+            <remote-alias>optimal_temp_range</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>base_temp_c</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[base_temp_c]</local-name>
+            <parent-name>[Dim_Zone.csv]</parent-name>
+            <remote-alias>base_temp_c</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rssi_base_dbm</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rssi_base_dbm]</local-name>
+            <parent-name>[Dim_Zone.csv]</parent-name>
+            <remote-alias>rssi_base_dbm</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>asset_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[asset_type]</local-name>
+            <parent-name>[Dim_Zone.csv]</parent-name>
+            <remote-alias>asset_type</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Avg_Ingestion_Latency' datatype='real' name='[Calculation_9953624950132736]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG([pipeline_latency_ms])' />
+      </column>
+      <column caption='Alert_Rate_Pct' datatype='real' default-format='p0.0%' name='[Calculation_9953624950542337]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT(IIF([alert] = TRUE, [reading_id], NULL)) /COUNT([reading_id])' />
+      </column>
+      <column caption='Total_CO2_Saved' datatype='real' name='[Calculation_9953624962215938]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='MAX([battery_co2_saved_g])' />
+      </column>
+      <column caption='Dim_Tag.csv' datatype='table' name='[__tableau_internal_object_id__].[Dim_Tag.csv_D4F9E9C349A64AFEAA4C372C1CBF3C4D]' role='measure' type='quantitative' />
+      <column caption='Dim_Zone.csv' datatype='table' name='[__tableau_internal_object_id__].[Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF]' role='measure' type='quantitative' />
+      <column caption='Fact_Telemetry.csv' datatype='table' name='[__tableau_internal_object_id__].[Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E]' role='measure' type='quantitative' />
+      <column caption='Alert' datatype='boolean' name='[alert]' role='dimension' type='nominal' />
+      <column caption='asset type (Dim Tag.csv)' datatype='string' name='[asset_type (Dim_Tag.csv)]' role='dimension' type='nominal' />
+      <column caption='Asset Type' datatype='string' name='[asset_type]' role='dimension' type='nominal' />
+      <column caption='Base Temp C' datatype='real' name='[base_temp_c]' role='measure' type='quantitative' />
+      <column caption='Battery Co2 Saved G' datatype='real' name='[battery_co2_saved_g]' role='measure' type='quantitative' />
+      <column caption='Classification' datatype='string' name='[classification]' role='dimension' type='nominal' />
+      <column caption='Day Of Week' datatype='string' name='[day_of_week]' role='dimension' type='nominal' />
+      <column caption='Harvest Threshold' datatype='real' name='[harvest_threshold]' role='measure' type='quantitative' />
+      <column caption='Hour' datatype='integer' name='[hour]' role='measure' type='quantitative' />
+      <column caption='Location' datatype='string' name='[location]' role='dimension' type='nominal' />
+      <column caption='Metric' datatype='string' name='[metric]' role='dimension' type='nominal' />
+      <column caption='Optimal Temp Range' datatype='string' name='[optimal_temp_range]' role='dimension' type='nominal' />
+      <column caption='Pipeline Latency Ms' datatype='real' name='[pipeline_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Reading Id' datatype='integer' name='[reading_id]' role='dimension' type='ordinal' />
+      <column caption='Rssi Base Dbm' datatype='real' name='[rssi_base_dbm]' role='measure' type='quantitative' />
+      <column caption='tag id (Dim Tag.csv)' datatype='string' name='[tag_id (Dim_Tag.csv)]' role='dimension' type='nominal' />
+      <column caption='Tag Id' datatype='string' name='[tag_id]' role='dimension' type='nominal' />
+      <column caption='Timestamp' datatype='datetime' name='[timestamp]' role='dimension' type='ordinal' />
+      <column caption='Value' datatype='real' name='[value]' role='measure' type='quantitative' />
+      <column caption='Zone' datatype='string' name='[zone]' role='dimension' type='nominal' />
+      <column caption='zone id (Dim Tag.csv)' datatype='string' name='[zone_id (Dim_Tag.csv)]' role='dimension' type='nominal' />
+      <column caption='Zone Id' datatype='string' name='[zone_id]' role='dimension' type='nominal' />
+      <column-instance column='[classification]' derivation='None' name='[none:classification:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:classification:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;NORMAL&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;CRITICAL&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;WARNING&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Dim_Tag.csv' id='Dim_Tag.csv_D4F9E9C349A64AFEAA4C372C1CBF3C4D'>
+            <properties context=''>
+              <relation connection='textscan.1iptur10hmvor212y7ri519iwvac' name='Dim_Tag.csv' table='[Dim_Tag#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='tag_id' ordinal='0' />
+                  <column datatype='string' name='zone_id' ordinal='1' />
+                  <column datatype='string' name='asset_type' ordinal='2' />
+                  <column datatype='real' name='harvest_threshold' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='Dim_Zone.csv' id='Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF'>
+            <properties context=''>
+              <relation connection='textscan.1iptur10hmvor212y7ri519iwvac' name='Dim_Zone.csv' table='[Dim_Zone#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='zone_id' ordinal='0' />
+                  <column datatype='string' name='location' ordinal='1' />
+                  <column datatype='string' name='optimal_temp_range' ordinal='2' />
+                  <column datatype='real' name='base_temp_c' ordinal='3' />
+                  <column datatype='real' name='rssi_base_dbm' ordinal='4' />
+                  <column datatype='string' name='asset_type' ordinal='5' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='Fact_Telemetry.csv' id='Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E'>
+            <properties context=''>
+              <relation connection='textscan.1iptur10hmvor212y7ri519iwvac' name='Fact_Telemetry.csv' table='[Fact_Telemetry#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='reading_id' ordinal='0' />
+                  <column datatype='datetime' date-parse-format='yyyy-dd-MM&apos;T&apos;HH:mm:ssZZZZZ' name='timestamp' ordinal='1' />
+                  <column datatype='integer' name='hour' ordinal='2' />
+                  <column datatype='string' name='day_of_week' ordinal='3' />
+                  <column datatype='string' name='zone' ordinal='4' />
+                  <column datatype='string' name='tag_id' ordinal='5' />
+                  <column datatype='string' name='metric' ordinal='6' />
+                  <column datatype='real' name='value' ordinal='7' />
+                  <column datatype='string' name='classification' ordinal='8' />
+                  <column datatype='boolean' name='alert' ordinal='9' />
+                  <column datatype='real' name='pipeline_latency_ms' ordinal='10' />
+                  <column datatype='real' name='battery_co2_saved_g' ordinal='11' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[tag_id]' />
+              <expression op='[tag_id (Dim_Tag.csv)]' />
+            </expression>
+            <first-end-point object-id='Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E' />
+            <second-end-point object-id='Dim_Tag.csv_D4F9E9C349A64AFEAA4C372C1CBF3C4D' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[zone]' />
+              <expression op='[zone_id]' />
+            </expression>
+            <first-end-point object-id='Fact_Telemetry.csv_C991B9CFA5854A47A3ADA03A17678C2E' />
+            <second-end-point object-id='Dim_Zone.csv_DE9C14A2BB4A49C9AE9C6344034576BF' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+    <datasource caption='Fact_Gateway_Metrics' inline='true' name='federated.05k2l381vpzzc31evlsxm0b4p29q' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Fact_Gateway_Metrics' name='textscan.1tqafy81hoplh917h1n1z1lwaa6x'>
+            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Fact_Gateway_Metrics.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1tqafy81hoplh917h1n1z1lwaa6x' name='Fact_Gateway_Metrics.csv' table='[Fact_Gateway_Metrics#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='run_id' ordinal='0' />
+            <column datatype='string' name='run_at' ordinal='1' />
+            <column datatype='integer' name='zone_count' ordinal='2' />
+            <column datatype='integer' name='tags_per_zone' ordinal='3' />
+            <column datatype='integer' name='poll_cycles' ordinal='4' />
+            <column datatype='integer' name='total_seen' ordinal='5' />
+            <column datatype='integer' name='accepted' ordinal='6' />
+            <column datatype='integer' name='rejected_unknown_tag' ordinal='7' />
+            <column datatype='integer' name='rejected_bad_auth' ordinal='8' />
+            <column datatype='integer' name='rejected_malformed' ordinal='9' />
+            <column datatype='integer' name='total_published' ordinal='10' />
+            <column datatype='real' name='avg_latency_ms' ordinal='11' />
+            <column datatype='real' name='min_latency_ms' ordinal='12' />
+            <column datatype='real' name='max_latency_ms' ordinal='13' />
+            <column datatype='real' name='throughput_msgs_per_s' ordinal='14' />
+            <column datatype='real' name='run_duration_s' ordinal='15' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>run_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[run_id]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>run_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>run_at</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[run_at]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>run_at</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>zone_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[zone_count]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>zone_count</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tags_per_zone</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[tags_per_zone]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>tags_per_zone</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>poll_cycles</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[poll_cycles]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>poll_cycles</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_seen</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_seen]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>total_seen</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>accepted</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[accepted]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>accepted</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rejected_unknown_tag</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rejected_unknown_tag]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>rejected_unknown_tag</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rejected_bad_auth</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rejected_bad_auth]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>rejected_bad_auth</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rejected_malformed</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rejected_malformed]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>rejected_malformed</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_published</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_published]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>total_published</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_latency_ms]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>avg_latency_ms</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[min_latency_ms]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>min_latency_ms</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_latency_ms]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>max_latency_ms</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>throughput_msgs_per_s</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[throughput_msgs_per_s]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>throughput_msgs_per_s</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>run_duration_s</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[run_duration_s]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>run_duration_s</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Rogue_Rejection_Rate' datatype='real' name='[Calculation_9953624965857284]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([rejected_unknown_tag]) / SUM([total_seen])' />
+      </column>
+      <column caption='Fact_Gateway_Metrics.csv' datatype='table' name='[__tableau_internal_object_id__].[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]' role='measure' type='quantitative' />
+      <column caption='Accepted' datatype='integer' name='[accepted]' role='measure' type='quantitative' />
+      <column caption='Avg Latency Ms' datatype='real' name='[avg_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Max Latency Ms' datatype='real' name='[max_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Min Latency Ms' datatype='real' name='[min_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Poll Cycles' datatype='integer' name='[poll_cycles]' role='measure' type='quantitative' />
+      <column caption='Rejected Bad Auth' datatype='integer' name='[rejected_bad_auth]' role='measure' type='quantitative' />
+      <column caption='Rejected Malformed' datatype='integer' name='[rejected_malformed]' role='measure' type='quantitative' />
+      <column caption='Rejected Unknown Tag' datatype='integer' name='[rejected_unknown_tag]' role='measure' type='quantitative' />
+      <column caption='Run At' datatype='string' name='[run_at]' role='dimension' type='nominal' />
+      <column caption='Run Duration S' datatype='real' name='[run_duration_s]' role='measure' type='quantitative' />
+      <column caption='Run Id' datatype='integer' name='[run_id]' role='dimension' type='ordinal' />
+      <column caption='Tags Per Zone' datatype='integer' name='[tags_per_zone]' role='measure' type='quantitative' />
+      <column caption='Throughput Msgs Per S' datatype='real' name='[throughput_msgs_per_s]' role='measure' type='quantitative' />
+      <column caption='Total Published' datatype='integer' name='[total_published]' role='measure' type='quantitative' />
+      <column caption='Total Seen' datatype='integer' name='[total_seen]' role='measure' type='quantitative' />
+      <column caption='Zone Count' datatype='integer' name='[zone_count]' role='measure' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[run_at]' derivation='None' name='[none:run_at:nk]' pivot='key' type='nominal' />
+      <column-instance column='[accepted]' derivation='Sum' name='[sum:accepted:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[avg_latency_ms]' derivation='Sum' name='[sum:avg_latency_ms:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[max_latency_ms]' derivation='Sum' name='[sum:max_latency_ms:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[min_latency_ms]' derivation='Sum' name='[sum:min_latency_ms:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[poll_cycles]' derivation='Sum' name='[sum:poll_cycles:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[rejected_bad_auth]' derivation='Sum' name='[sum:rejected_bad_auth:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[rejected_malformed]' derivation='Sum' name='[sum:rejected_malformed:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[rejected_unknown_tag]' derivation='Sum' name='[sum:rejected_unknown_tag:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[run_duration_s]' derivation='Sum' name='[sum:run_duration_s:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[tags_per_zone]' derivation='Sum' name='[sum:tags_per_zone:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[throughput_msgs_per_s]' derivation='Sum' name='[sum:throughput_msgs_per_s:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[total_published]' derivation='Sum' name='[sum:total_published:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[total_seen]' derivation='Sum' name='[sum:total_seen:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[zone_count]' derivation='Sum' name='[sum:zone_count:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_9953624965857284]' derivation='User' name='[usr:Calculation_9953624965857284:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:run_at:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;2026-07-02T15:33:09.199549+00:00&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_malformed:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:accepted:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:max_latency_ms:qk]&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:tags_per_zone:qk]&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:min_latency_ms:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:zone_count:qk]&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:poll_cycles:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:throughput_msgs_per_s:qk]&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:total_published:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[usr:Calculation_9953624965857284:qk]&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_bad_auth:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:avg_latency_ms:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_unknown_tag:qk]&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:total_seen:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:run_duration_s:qk]&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[__tableau_internal_object_id__].[cnt:Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Fact_Gateway_Metrics.csv' id='Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6'>
+            <properties context=''>
+              <relation connection='textscan.1tqafy81hoplh917h1n1z1lwaa6x' name='Fact_Gateway_Metrics.csv' table='[Fact_Gateway_Metrics#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='run_id' ordinal='0' />
+                  <column datatype='string' name='run_at' ordinal='1' />
+                  <column datatype='integer' name='zone_count' ordinal='2' />
+                  <column datatype='integer' name='tags_per_zone' ordinal='3' />
+                  <column datatype='integer' name='poll_cycles' ordinal='4' />
+                  <column datatype='integer' name='total_seen' ordinal='5' />
+                  <column datatype='integer' name='accepted' ordinal='6' />
+                  <column datatype='integer' name='rejected_unknown_tag' ordinal='7' />
+                  <column datatype='integer' name='rejected_bad_auth' ordinal='8' />
+                  <column datatype='integer' name='rejected_malformed' ordinal='9' />
+                  <column datatype='integer' name='total_published' ordinal='10' />
+                  <column datatype='real' name='avg_latency_ms' ordinal='11' />
+                  <column datatype='real' name='min_latency_ms' ordinal='12' />
+                  <column datatype='real' name='max_latency_ms' ordinal='13' />
+                  <column datatype='real' name='throughput_msgs_per_s' ordinal='14' />
+                  <column datatype='real' name='run_duration_s' ordinal='15' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <actions>
+    <edit-parameter-action caption='Parameter1' name='[Action1_06AEC99087DE4F7187AD269194A06F1B]'>
+      <activation type='on-select' />
+      <source type='sheet' worksheet='Temperature Trend' />
+      <agg-type type='max' />
+      <clear-option type='assign-fixed-value' value='r:::36.504950495049499' />
+      <params>
+        <param name='source-field' value='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]' />
+        <param name='target-parameter' value='[Parameters].[AxisEnd]' />
+      </params>
+    </edit-parameter-action>
+  </actions>
+  <worksheets>
+    <worksheet name='Alert By Day'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr'>
+            <column caption='Alert' datatype='boolean' name='[alert]' role='dimension' type='nominal' />
+            <column-instance column='[reading_id]' derivation='Count' name='[cnt:reading_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Day Of Week' datatype='string' name='[day_of_week]' role='dimension' type='nominal' />
+            <column-instance column='[alert]' derivation='None' name='[none:alert:nk]' pivot='key' type='nominal' />
+            <column-instance column='[day_of_week]' derivation='None' name='[none:day_of_week:nk]' pivot='key' type='nominal' />
+            <column-instance column='[zone]' derivation='None' name='[none:zone:nk]' pivot='key' type='nominal' />
+            <column caption='Reading Id' datatype='integer' name='[reading_id]' role='dimension' type='ordinal' />
+            <column caption='Zone' datatype='string' name='[zone]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:alert:nk]'>
+            <groupfilter function='member' level='[none:alert:nk]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:alert:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[cnt:reading_id:qk]</rows>
+        <cols>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:day_of_week:nk]</cols>
+      </table>
+      <simple-id uuid='{7DFA9113-30C7-432D-9830-9124969CC4BC}' />
+    </worksheet>
+    <worksheet name='Classification Breakdown'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr'>
+            <column caption='Classification' datatype='string' name='[classification]' role='dimension' type='nominal' />
+            <column-instance column='[reading_id]' derivation='Count' name='[cnt:reading_id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[classification]' derivation='None' name='[none:classification:nk]' pivot='key' type='nominal' />
+            <column caption='Reading Id' datatype='integer' name='[reading_id]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:classification:nk]' />
+              <wedge-size column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[cnt:reading_id:qk]' />
+              <size column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[cnt:reading_id:qk]' />
+              <text column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:classification:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run>&lt;</run>
+                <run>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:classification:nk]</run>
+                <run>&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.9450275897979736' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{47CA83BD-0B2C-45F4-9AE2-F5F9DB53FC25}' />
+    </worksheet>
+    <worksheet name='KPI - Alerts'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr'>
+            <column caption='Alert_Rate_Pct' datatype='real' default-format='p0.0%' name='[Calculation_9953624950542337]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNT(IIF([alert] = TRUE, [reading_id], NULL)) /COUNT([reading_id])' />
+            </column>
+            <column caption='Alert' datatype='boolean' name='[alert]' role='dimension' type='nominal' />
+            <column caption='Reading Id' datatype='integer' name='[reading_id]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_9953624950542337]' derivation='User' name='[usr:Calculation_9953624950542337:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='color' value='#555555' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[usr:Calculation_9953624950542337:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='28'><![CDATA[<[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[usr:Calculation_9953624950542337:qk]> ]]></run>
+                <run bold='true' fontsize='12'>ms</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='10'>Average Alert Rate</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-transparency' value='255' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{9A5B906D-0AD4-42E6-A439-1C33F682AF5B}' />
+    </worksheet>
+    <worksheet name='KPI - CO2'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr'>
+            <column caption='Total_CO2_Saved' datatype='real' name='[Calculation_9953624962215938]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='MAX([battery_co2_saved_g])' />
+            </column>
+            <column caption='Battery Co2 Saved G' datatype='real' name='[battery_co2_saved_g]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_9953624962215938]' derivation='User' name='[usr:Calculation_9953624962215938:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='color' value='#555555' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[usr:Calculation_9953624962215938:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='28'><![CDATA[<[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[usr:Calculation_9953624962215938:qk]> ]]></run>
+                <run bold='true' fontsize='12'>grams</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='10'>Total CO2 Saved vs. Battery</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-transparency' value='255' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{ECBE5CF5-EAC0-4BA1-8472-3FE3AF60DA74}' />
+    </worksheet>
+    <worksheet name='KPI - Latency'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr'>
+            <column caption='Avg_Ingestion_Latency' datatype='real' name='[Calculation_9953624950132736]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='AVG([pipeline_latency_ms])' />
+            </column>
+            <column caption='Pipeline Latency Ms' datatype='real' name='[pipeline_latency_ms]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_9953624950132736]' derivation='User' name='[usr:Calculation_9953624950132736:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='color' value='#555555' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[usr:Calculation_9953624950132736:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='28'><![CDATA[<[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[usr:Calculation_9953624950132736:qk]> ]]></run>
+                <run bold='true' fontsize='12'>ms</run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#000000' fontname='Benton Sans Book' fontsize='10'>Average  Ingested Latency</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-transparency' value='255' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{C926D4C4-F8CB-462C-A177-9488AEDB7DCD}' />
+    </worksheet>
+    <worksheet name='Latency Over Time'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Pipeline Latency - Edge to Cloud</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr'>
+            <column-instance column='[pipeline_latency_ms]' derivation='Avg' name='[avg:pipeline_latency_ms:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[timestamp]' derivation='Day' name='[dy:timestamp:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[zone]' derivation='None' name='[none:zone:nk]' pivot='key' type='nominal' />
+            <column caption='Pipeline Latency Ms' datatype='real' name='[pipeline_latency_ms]' role='measure' type='quantitative' />
+            <column caption='Timestamp' datatype='datetime' name='[timestamp]' role='dimension' type='ordinal' />
+            <column caption='Zone' datatype='string' name='[zone]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='fill-above' id='refline1' value='#00000000' />
+            <format attr='fill-below' id='refline1' value='#00000000' />
+            <format attr='line-visibility' id='refline1' value='on' />
+            <format attr='line-pattern-only' id='refline1' value='dashed' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-pattern-only' value='dashed' />
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:pipeline_latency_ms:qk]' enable-instant-analytics='true' formula='constant' id='refline1' label='AWS Baseline 0.381ms' label-type='custom' scope='per-pane' value='0.38100000000000001' value-column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:pipeline_latency_ms:qk]' z-order='1' />
+          </pane>
+        </panes>
+        <rows>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:pipeline_latency_ms:qk]</rows>
+        <cols>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[dy:timestamp:ok]</cols>
+      </table>
+      <simple-id uuid='{86A0DE82-8D88-46E5-8058-A33A7084D9A4}' />
+    </worksheet>
+    <worksheet name='Live Aws Run'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Live Pipeline Run - AWS IoT Core (eu-west-2)</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cold_path_live' name='federated.08qakk609ht89h10bqf281key2lu' />
+          </datasources>
+          <datasource-dependencies datasource='federated.08qakk609ht89h10bqf281key2lu'>
+            <column caption='Avg Value' datatype='real' name='[avg_value]' role='measure' type='quantitative' />
+            <column caption='Metric' datatype='string' name='[metric]' role='dimension' type='nominal' />
+            <column-instance column='[metric]' derivation='None' name='[none:metric:nk]' pivot='key' type='nominal' />
+            <column-instance column='[zone]' derivation='None' name='[none:zone:nk]' pivot='key' type='nominal' />
+            <column caption='Reading Count' datatype='integer' name='[reading_count]' role='measure' type='quantitative' />
+            <column-instance column='[avg_value]' derivation='Sum' name='[sum:avg_value:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[reading_count]' derivation='Sum' name='[sum:reading_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Zone' datatype='string' name='[zone]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <encodings>
+              <color column='[federated.08qakk609ht89h10bqf281key2lu].[none:metric:nk]' />
+              <text column='[federated.08qakk609ht89h10bqf281key2lu].[sum:reading_count:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.08qakk609ht89h10bqf281key2lu].[sum:avg_value:qk]</rows>
+        <cols>([federated.08qakk609ht89h10bqf281key2lu].[none:zone:nk] / [federated.08qakk609ht89h10bqf281key2lu].[none:metric:nk])</cols>
+      </table>
+      <simple-id uuid='{B460FF67-2624-4FD2-9A04-0CF975F09FB1}' />
+    </worksheet>
+    <worksheet name='Security Posture'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Gateway_Metrics' name='federated.05k2l381vpzzc31evlsxm0b4p29q' />
+          </datasources>
+          <datasource-dependencies datasource='federated.05k2l381vpzzc31evlsxm0b4p29q'>
+            <column caption='Accepted' datatype='integer' name='[accepted]' role='measure' type='quantitative' />
+            <column caption='Rejected Unknown Tag' datatype='integer' name='[rejected_unknown_tag]' role='measure' type='quantitative' />
+            <column-instance column='[accepted]' derivation='Sum' name='[sum:accepted:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[rejected_unknown_tag]' derivation='Sum' name='[sum:rejected_unknown_tag:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:accepted:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_unknown_tag:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='font-size' field='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' value='18' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Pie' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' />
+              <wedge-size column='[federated.05k2l381vpzzc31evlsxm0b4p29q].[Multiple Values]' />
+              <text column='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' />
+              <lod column='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='size' value='1.1534254550933838' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{4241265C-1F19-4329-A29F-2EE94A9040CA}' />
+    </worksheet>
+    <worksheet name='Temperature Trend'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Greenhouse Temperature - 7 Day Trend</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr'>
+            <column-instance column='[value]' derivation='Avg' name='[avg:value:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[timestamp]' derivation='Day' name='[dy:timestamp:ok]' pivot='key' type='ordinal' />
+            <column caption='Metric' datatype='string' name='[metric]' role='dimension' type='nominal' />
+            <column-instance column='[metric]' derivation='None' name='[none:metric:nk]' pivot='key' type='nominal' />
+            <column-instance column='[zone]' derivation='None' name='[none:zone:nk]' pivot='key' type='nominal' />
+            <column caption='Timestamp' datatype='datetime' name='[timestamp]' role='dimension' type='ordinal' />
+            <column caption='Value' datatype='real' name='[value]' role='measure' type='quantitative' />
+            <column caption='Zone' datatype='string' name='[zone]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:metric:nk]'>
+            <groupfilter function='member' level='[none:metric:nk]' member='&quot;temperature_c&quot;' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:metric:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]' scope='rows' value='Temperature (°C)' />
+            <encoding attr='space' class='0' field='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]' field-type='quantitative' max='40.0' min='15.0' range-type='fixed' scope='rows' type='space' />
+            <format attr='auto-subtitle' class='0' field='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]' scope='rows' value='true' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[dy:timestamp:ok]' value='69' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='line-visibility' id='refline0' value='on' />
+            <format attr='line-pattern-only' id='refline0' value='dashed' />
+            <format attr='stroke-color' id='refline0' value='#f28e2b4b' />
+            <format attr='fill-above' id='refline1' value='#00000000' />
+            <format attr='fill-below' id='refline1' value='#00000000' />
+            <format attr='stroke-color' id='refline1' value='#ff36134b' />
+            <format attr='line-visibility' id='refline1' value='on' />
+            <format attr='line-pattern-only' id='refline1' value='dashed' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' />
+            </encodings>
+            <reference-line axis-column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]' enable-instant-analytics='true' formula='constant' id='refline0' label='Warning Threshold (28°C)' label-type='custom' scope='per-pane' value='28.0' value-column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]' z-order='1' />
+            <reference-line axis-column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]' enable-instant-analytics='true' formula='constant' id='refline1' label='Critical Threshold (35°C)' label-type='custom' scope='per-pane' value='35.0' value-column='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]' z-order='2' />
+            <style>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[avg:value:qk]</rows>
+        <cols>[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[dy:timestamp:ok]</cols>
+      </table>
+      <simple-id uuid='{7704270B-E534-4C2B-8986-D021DFCADB4C}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+      <style />
+      <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' preset-index='0' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='97916' id='15' param='horz' type-v2='layout-flow' w='98828' x='586' y='1042'>
+            <zone h='97916' id='13' type-v2='layout-basic' w='87115' x='586' y='1042'>
+              <zone h='20442' id='3' param='horz' type-v2='layout-flow' w='87115' x='586' y='1042'>
+                <zone h='20442' id='5' param='horz' type-v2='layout-flow' w='87115' x='586' y='1042'>
+                  <zone h='20442' id='6' name='KPI - CO2' w='29038' x='586' y='1042'>
+                    <layout-cache cell-count-w='1' fixed-size-h='137' type-h='fixed' type-w='cell' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='solid' />
+                      <format attr='border-width' value='1' />
+                      <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
+                      <format attr='margin' value='8' />
+                      <format attr='background-color' value='#ffffff' />
+                    </zone-style>
+                  </zone>
+                  <zone h='20442' id='11' name='KPI - Latency' w='29038' x='29624' y='1042'>
+                    <layout-cache cell-count-w='1' type-h='fixed' type-w='cell' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='solid' />
+                      <format attr='border-width' value='1' />
+                      <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
+                      <format attr='margin' value='8' />
+                      <format attr='background-color' value='#ffffff' />
+                    </zone-style>
+                  </zone>
+                  <zone h='20442' id='8' name='KPI - Alerts' w='29038' x='58662' y='1042'>
+                    <layout-cache cell-count-w='1' fixed-size-h='137' type-h='fixed' type-w='cell' />
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='solid' />
+                      <format attr='border-width' value='1' />
+                      <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
+                      <format attr='margin' value='8' />
+                      <format attr='background-color' value='#ffffff' />
+                    </zone-style>
+                  </zone>
+                </zone>
+              </zone>
+              <zone h='77474' id='12' name='Latency Over Time' w='43558' x='586' y='21484'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='77474' id='17' name='Security Posture' w='43557' x='44144' y='21484'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='97916' id='14' is-fixed='true' param='vert' type-v2='layout-flow' w='11713' x='87701' y='1042'>
+              <zone h='8594' id='16' name='Latency Over Time' pane-specification-id='1' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' type-v2='color' w='11713' x='87701' y='1042'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='8594' id='18' name='Security Posture' pane-specification-id='0' param='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' type-v2='color' w='11713' x='87701' y='9636'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='2865' id='19' name='Security Posture' pane-specification-id='0' param='[federated.05k2l381vpzzc31evlsxm0b4p29q].[Multiple Values]' type-v2='size' w='11713' x='87701' y='18230'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout name='Phone'>
+          <size maxheight='900' minheight='900' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='10' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98222' id='9' param='vert' type-v2='layout-flow' w='95734' x='2133' y='889'>
+                <zone fixed-size='280' h='32000' id='6' is-fixed='true' name='KPI - CO2' w='95734' x='2133' y='889'>
+                  <layout-cache type-h='cell' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='32000' id='8' is-fixed='true' name='KPI - Alerts' w='95734' x='2133' y='32889'>
+                  <layout-cache type-h='cell' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='1' />
+                    <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#ffffff' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{42577CC9-B3E5-411C-894C-0CF16A65F806}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='72'>
+    <window class='worksheet' name='KPI - CO2'>
+      <cards>
+        <edge name='left'>
+          <strip size='133'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3F6F4D76-93D8-4DEA-AD36-8B30BBED1CC2}' />
+    </window>
+    <window class='worksheet' name='KPI - Latency'>
+      <cards>
+        <edge name='left'>
+          <strip size='133'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A9A5CE9D-BA14-4E72-B76E-54DA540FD756}' />
+    </window>
+    <window class='worksheet' name='KPI - Alerts'>
+      <cards>
+        <edge name='left'>
+          <strip size='133'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C1BD792C-7430-42AF-A823-1C3DB90FB746}' />
+    </window>
+    <window class='worksheet' name='Latency Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='133'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='25'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='184'>
+            <card pane-specification-id='1' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{24E852BD-FEE4-4472-ADA5-832C86AD8977}' />
+    </window>
+    <window class='worksheet' name='Security Posture'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{7B500442-F07D-41E8-BEBE-26D20087A9BC}' />
+    </window>
+    <window class='dashboard' maximized='true' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='KPI - Alerts'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='KPI - CO2'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='KPI - Latency'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Latency Over Time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Security Posture'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='17' />
+      <simple-id uuid='{FFB5858F-85EE-4F2B-978F-40EE2CD4F294}' />
+    </window>
+    <window class='worksheet' name='Temperature Trend'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A096EEE4-FF68-401F-BF34-F6117C185F79}' />
+    </window>
+    <window class='worksheet' name='Classification Breakdown'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:classification:nk]' type='color' />
+            <card pane-specification-id='0' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[cnt:reading_id:qk]' type='size' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{783EED4D-08E7-4E77-9FE8-64A0B7CFE88C}' />
+    </window>
+    <window class='worksheet' name='Alert By Day'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:alert:nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F48DCD74-EA5A-4814-881D-0CC51A36B1D2}' />
+    </window>
+    <window class='worksheet' name='Live Aws Run'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.08qakk609ht89h10bqf281key2lu].[none:metric:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D588F40F-EF44-407E-A7AC-5F70E8A4B2A7}' />
+    </window>
+  </windows>
+</workbook>
