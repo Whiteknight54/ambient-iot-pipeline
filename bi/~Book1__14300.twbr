@@ -5,6 +5,7 @@
   <document-format-change-manifest>
     <AccessibleZoneTabOrder />
     <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
     <_.fcp.DashboardRoundedCorners.true...DashboardRoundedCorners />
     <MarkAnimation />
     <ObjectModelEncapsulateLegacy />
@@ -15,6 +16,7 @@
     <SetMembershipControl />
     <SheetIdentifierTracking />
     <WindowsPersistSimpleIdentifiers />
+    <ZoneBackgroundTransparency />
   </document-format-change-manifest>
   <preferences>
     <preference name='ui.encoding.shelf.height' value='24' />
@@ -258,6 +260,380 @@
                   <column datatype='real' name='alert_rate_pct' ordinal='9' />
                   <column datatype='real' name='avg_total_latency_ms' ordinal='10' />
                   <column datatype='real' name='max_total_latency_ms' ordinal='11' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
+    <datasource caption='Fact_Gateway_Metrics' inline='true' name='federated.05k2l381vpzzc31evlsxm0b4p29q' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Fact_Gateway_Metrics' name='textscan.1tqafy81hoplh917h1n1z1lwaa6x'>
+            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Fact_Gateway_Metrics.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1tqafy81hoplh917h1n1z1lwaa6x' name='Fact_Gateway_Metrics.csv' table='[Fact_Gateway_Metrics#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='run_id' ordinal='0' />
+            <column datatype='string' name='run_at' ordinal='1' />
+            <column datatype='integer' name='zone_count' ordinal='2' />
+            <column datatype='integer' name='tags_per_zone' ordinal='3' />
+            <column datatype='integer' name='poll_cycles' ordinal='4' />
+            <column datatype='integer' name='total_seen' ordinal='5' />
+            <column datatype='integer' name='accepted' ordinal='6' />
+            <column datatype='integer' name='rejected_unknown_tag' ordinal='7' />
+            <column datatype='integer' name='rejected_bad_auth' ordinal='8' />
+            <column datatype='integer' name='rejected_malformed' ordinal='9' />
+            <column datatype='integer' name='total_published' ordinal='10' />
+            <column datatype='real' name='avg_latency_ms' ordinal='11' />
+            <column datatype='real' name='min_latency_ms' ordinal='12' />
+            <column datatype='real' name='max_latency_ms' ordinal='13' />
+            <column datatype='real' name='throughput_msgs_per_s' ordinal='14' />
+            <column datatype='real' name='run_duration_s' ordinal='15' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>run_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[run_id]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>run_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>run_at</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[run_at]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>run_at</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>zone_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[zone_count]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>zone_count</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>tags_per_zone</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[tags_per_zone]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>tags_per_zone</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>poll_cycles</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[poll_cycles]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>poll_cycles</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_seen</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_seen]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>total_seen</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>accepted</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[accepted]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>accepted</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rejected_unknown_tag</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rejected_unknown_tag]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>rejected_unknown_tag</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rejected_bad_auth</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rejected_bad_auth]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>rejected_bad_auth</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rejected_malformed</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[rejected_malformed]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>rejected_malformed</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>total_published</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[total_published]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>total_published</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_latency_ms]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>avg_latency_ms</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>min_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[min_latency_ms]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>min_latency_ms</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>max_latency_ms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[max_latency_ms]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>max_latency_ms</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>throughput_msgs_per_s</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[throughput_msgs_per_s]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>throughput_msgs_per_s</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>run_duration_s</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[run_duration_s]</local-name>
+            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
+            <remote-alias>run_duration_s</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Rogue_Rejection_Rate' datatype='real' name='[Calculation_9953624965857284]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([rejected_unknown_tag]) / SUM([total_seen])' />
+      </column>
+      <column caption='Fact_Gateway_Metrics.csv' datatype='table' name='[__tableau_internal_object_id__].[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]' role='measure' type='quantitative' />
+      <column caption='Accepted' datatype='integer' name='[accepted]' role='measure' type='quantitative' />
+      <column caption='Avg Latency Ms' datatype='real' name='[avg_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Max Latency Ms' datatype='real' name='[max_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Min Latency Ms' datatype='real' name='[min_latency_ms]' role='measure' type='quantitative' />
+      <column caption='Poll Cycles' datatype='integer' name='[poll_cycles]' role='measure' type='quantitative' />
+      <column caption='Rejected Bad Auth' datatype='integer' name='[rejected_bad_auth]' role='measure' type='quantitative' />
+      <column caption='Rejected Malformed' datatype='integer' name='[rejected_malformed]' role='measure' type='quantitative' />
+      <column caption='Rejected Unknown Tag' datatype='integer' name='[rejected_unknown_tag]' role='measure' type='quantitative' />
+      <column caption='Run At' datatype='string' name='[run_at]' role='dimension' type='nominal' />
+      <column caption='Run Duration S' datatype='real' name='[run_duration_s]' role='measure' type='quantitative' />
+      <column caption='Run Id' datatype='integer' name='[run_id]' role='dimension' type='ordinal' />
+      <column caption='Tags Per Zone' datatype='integer' name='[tags_per_zone]' role='measure' type='quantitative' />
+      <column caption='Throughput Msgs Per S' datatype='real' name='[throughput_msgs_per_s]' role='measure' type='quantitative' />
+      <column caption='Total Published' datatype='integer' name='[total_published]' role='measure' type='quantitative' />
+      <column caption='Total Seen' datatype='integer' name='[total_seen]' role='measure' type='quantitative' />
+      <column caption='Zone Count' datatype='integer' name='[zone_count]' role='measure' type='quantitative' />
+      <column-instance column='[__tableau_internal_object_id__].[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[run_at]' derivation='None' name='[none:run_at:nk]' pivot='key' type='nominal' />
+      <column-instance column='[accepted]' derivation='Sum' name='[sum:accepted:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[avg_latency_ms]' derivation='Sum' name='[sum:avg_latency_ms:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[max_latency_ms]' derivation='Sum' name='[sum:max_latency_ms:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[min_latency_ms]' derivation='Sum' name='[sum:min_latency_ms:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[poll_cycles]' derivation='Sum' name='[sum:poll_cycles:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[rejected_bad_auth]' derivation='Sum' name='[sum:rejected_bad_auth:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[rejected_malformed]' derivation='Sum' name='[sum:rejected_malformed:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[rejected_unknown_tag]' derivation='Sum' name='[sum:rejected_unknown_tag:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[run_duration_s]' derivation='Sum' name='[sum:run_duration_s:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[tags_per_zone]' derivation='Sum' name='[sum:tags_per_zone:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[throughput_msgs_per_s]' derivation='Sum' name='[sum:throughput_msgs_per_s:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[total_published]' derivation='Sum' name='[sum:total_published:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[total_seen]' derivation='Sum' name='[sum:total_seen:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[zone_count]' derivation='Sum' name='[sum:zone_count:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_9953624965857284]' derivation='User' name='[usr:Calculation_9953624965857284:qk]' pivot='key' type='quantitative' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:run_at:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;2026-07-02T15:33:09.199549+00:00&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_malformed:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:accepted:qk]&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:max_latency_ms:qk]&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:tags_per_zone:qk]&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:min_latency_ms:qk]&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:zone_count:qk]&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:poll_cycles:qk]&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:throughput_msgs_per_s:qk]&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:total_published:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[usr:Calculation_9953624965857284:qk]&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_bad_auth:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:avg_latency_ms:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_unknown_tag:qk]&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:total_seen:qk]&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:run_duration_s:qk]&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[__tableau_internal_object_id__].[cnt:Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='Fact_Gateway_Metrics.csv' id='Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6'>
+            <properties context=''>
+              <relation connection='textscan.1tqafy81hoplh917h1n1z1lwaa6x' name='Fact_Gateway_Metrics.csv' table='[Fact_Gateway_Metrics#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='run_id' ordinal='0' />
+                  <column datatype='string' name='run_at' ordinal='1' />
+                  <column datatype='integer' name='zone_count' ordinal='2' />
+                  <column datatype='integer' name='tags_per_zone' ordinal='3' />
+                  <column datatype='integer' name='poll_cycles' ordinal='4' />
+                  <column datatype='integer' name='total_seen' ordinal='5' />
+                  <column datatype='integer' name='accepted' ordinal='6' />
+                  <column datatype='integer' name='rejected_unknown_tag' ordinal='7' />
+                  <column datatype='integer' name='rejected_bad_auth' ordinal='8' />
+                  <column datatype='integer' name='rejected_malformed' ordinal='9' />
+                  <column datatype='integer' name='total_published' ordinal='10' />
+                  <column datatype='real' name='avg_latency_ms' ordinal='11' />
+                  <column datatype='real' name='min_latency_ms' ordinal='12' />
+                  <column datatype='real' name='max_latency_ms' ordinal='13' />
+                  <column datatype='real' name='throughput_msgs_per_s' ordinal='14' />
+                  <column datatype='real' name='run_duration_s' ordinal='15' />
                 </columns>
               </relation>
             </properties>
@@ -817,380 +1193,6 @@
         </relationships>
       </object-graph>
     </datasource>
-    <datasource caption='Fact_Gateway_Metrics' inline='true' name='federated.05k2l381vpzzc31evlsxm0b4p29q' version='18.1'>
-      <connection class='federated'>
-        <named-connections>
-          <named-connection caption='Fact_Gateway_Metrics' name='textscan.1tqafy81hoplh917h1n1z1lwaa6x'>
-            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Fact_Gateway_Metrics.csv' password='' server='' />
-          </named-connection>
-        </named-connections>
-        <relation connection='textscan.1tqafy81hoplh917h1n1z1lwaa6x' name='Fact_Gateway_Metrics.csv' table='[Fact_Gateway_Metrics#csv]' type='table'>
-          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
-            <column datatype='integer' name='run_id' ordinal='0' />
-            <column datatype='string' name='run_at' ordinal='1' />
-            <column datatype='integer' name='zone_count' ordinal='2' />
-            <column datatype='integer' name='tags_per_zone' ordinal='3' />
-            <column datatype='integer' name='poll_cycles' ordinal='4' />
-            <column datatype='integer' name='total_seen' ordinal='5' />
-            <column datatype='integer' name='accepted' ordinal='6' />
-            <column datatype='integer' name='rejected_unknown_tag' ordinal='7' />
-            <column datatype='integer' name='rejected_bad_auth' ordinal='8' />
-            <column datatype='integer' name='rejected_malformed' ordinal='9' />
-            <column datatype='integer' name='total_published' ordinal='10' />
-            <column datatype='real' name='avg_latency_ms' ordinal='11' />
-            <column datatype='real' name='min_latency_ms' ordinal='12' />
-            <column datatype='real' name='max_latency_ms' ordinal='13' />
-            <column datatype='real' name='throughput_msgs_per_s' ordinal='14' />
-            <column datatype='real' name='run_duration_s' ordinal='15' />
-          </columns>
-        </relation>
-        <metadata-records>
-          <metadata-record class='capability'>
-            <remote-name />
-            <remote-type>0</remote-type>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias />
-            <aggregation>Count</aggregation>
-            <contains-null>true</contains-null>
-            <attributes>
-              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
-              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
-              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
-              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
-              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
-              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
-            </attributes>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>run_id</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[run_id]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>run_id</remote-alias>
-            <ordinal>0</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>run_at</remote-name>
-            <remote-type>129</remote-type>
-            <local-name>[run_at]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>run_at</remote-alias>
-            <ordinal>1</ordinal>
-            <local-type>string</local-type>
-            <aggregation>Count</aggregation>
-            <scale>1</scale>
-            <width>1073741823</width>
-            <contains-null>true</contains-null>
-            <collation flag='0' name='LEN_RUS' />
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>zone_count</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[zone_count]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>zone_count</remote-alias>
-            <ordinal>2</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>tags_per_zone</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[tags_per_zone]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>tags_per_zone</remote-alias>
-            <ordinal>3</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>poll_cycles</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[poll_cycles]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>poll_cycles</remote-alias>
-            <ordinal>4</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>total_seen</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[total_seen]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>total_seen</remote-alias>
-            <ordinal>5</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>accepted</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[accepted]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>accepted</remote-alias>
-            <ordinal>6</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>rejected_unknown_tag</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[rejected_unknown_tag]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>rejected_unknown_tag</remote-alias>
-            <ordinal>7</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>rejected_bad_auth</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[rejected_bad_auth]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>rejected_bad_auth</remote-alias>
-            <ordinal>8</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>rejected_malformed</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[rejected_malformed]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>rejected_malformed</remote-alias>
-            <ordinal>9</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>total_published</remote-name>
-            <remote-type>20</remote-type>
-            <local-name>[total_published]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>total_published</remote-alias>
-            <ordinal>10</ordinal>
-            <local-type>integer</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>avg_latency_ms</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[avg_latency_ms]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>avg_latency_ms</remote-alias>
-            <ordinal>11</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>min_latency_ms</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[min_latency_ms]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>min_latency_ms</remote-alias>
-            <ordinal>12</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>max_latency_ms</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[max_latency_ms]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>max_latency_ms</remote-alias>
-            <ordinal>13</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>throughput_msgs_per_s</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[throughput_msgs_per_s]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>throughput_msgs_per_s</remote-alias>
-            <ordinal>14</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-          <metadata-record class='column'>
-            <remote-name>run_duration_s</remote-name>
-            <remote-type>5</remote-type>
-            <local-name>[run_duration_s]</local-name>
-            <parent-name>[Fact_Gateway_Metrics.csv]</parent-name>
-            <remote-alias>run_duration_s</remote-alias>
-            <ordinal>15</ordinal>
-            <local-type>real</local-type>
-            <aggregation>Sum</aggregation>
-            <contains-null>true</contains-null>
-            <object-id>[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]</object-id>
-          </metadata-record>
-        </metadata-records>
-      </connection>
-      <aliases enabled='yes' />
-      <column caption='Rogue_Rejection_Rate' datatype='real' name='[Calculation_9953624965857284]' role='measure' type='quantitative'>
-        <calculation class='tableau' formula='SUM([rejected_unknown_tag]) / SUM([total_seen])' />
-      </column>
-      <column caption='Fact_Gateway_Metrics.csv' datatype='table' name='[__tableau_internal_object_id__].[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]' role='measure' type='quantitative' />
-      <column caption='Accepted' datatype='integer' name='[accepted]' role='measure' type='quantitative' />
-      <column caption='Avg Latency Ms' datatype='real' name='[avg_latency_ms]' role='measure' type='quantitative' />
-      <column caption='Max Latency Ms' datatype='real' name='[max_latency_ms]' role='measure' type='quantitative' />
-      <column caption='Min Latency Ms' datatype='real' name='[min_latency_ms]' role='measure' type='quantitative' />
-      <column caption='Poll Cycles' datatype='integer' name='[poll_cycles]' role='measure' type='quantitative' />
-      <column caption='Rejected Bad Auth' datatype='integer' name='[rejected_bad_auth]' role='measure' type='quantitative' />
-      <column caption='Rejected Malformed' datatype='integer' name='[rejected_malformed]' role='measure' type='quantitative' />
-      <column caption='Rejected Unknown Tag' datatype='integer' name='[rejected_unknown_tag]' role='measure' type='quantitative' />
-      <column caption='Run At' datatype='string' name='[run_at]' role='dimension' type='nominal' />
-      <column caption='Run Duration S' datatype='real' name='[run_duration_s]' role='measure' type='quantitative' />
-      <column caption='Run Id' datatype='integer' name='[run_id]' role='dimension' type='ordinal' />
-      <column caption='Tags Per Zone' datatype='integer' name='[tags_per_zone]' role='measure' type='quantitative' />
-      <column caption='Throughput Msgs Per S' datatype='real' name='[throughput_msgs_per_s]' role='measure' type='quantitative' />
-      <column caption='Total Published' datatype='integer' name='[total_published]' role='measure' type='quantitative' />
-      <column caption='Total Seen' datatype='integer' name='[total_seen]' role='measure' type='quantitative' />
-      <column caption='Zone Count' datatype='integer' name='[zone_count]' role='measure' type='quantitative' />
-      <column-instance column='[__tableau_internal_object_id__].[Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6]' derivation='Count' name='[__tableau_internal_object_id__].[cnt:Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[run_at]' derivation='None' name='[none:run_at:nk]' pivot='key' type='nominal' />
-      <column-instance column='[accepted]' derivation='Sum' name='[sum:accepted:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[avg_latency_ms]' derivation='Sum' name='[sum:avg_latency_ms:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[max_latency_ms]' derivation='Sum' name='[sum:max_latency_ms:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[min_latency_ms]' derivation='Sum' name='[sum:min_latency_ms:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[poll_cycles]' derivation='Sum' name='[sum:poll_cycles:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[rejected_bad_auth]' derivation='Sum' name='[sum:rejected_bad_auth:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[rejected_malformed]' derivation='Sum' name='[sum:rejected_malformed:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[rejected_unknown_tag]' derivation='Sum' name='[sum:rejected_unknown_tag:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[run_duration_s]' derivation='Sum' name='[sum:run_duration_s:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[tags_per_zone]' derivation='Sum' name='[sum:tags_per_zone:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[throughput_msgs_per_s]' derivation='Sum' name='[sum:throughput_msgs_per_s:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[total_published]' derivation='Sum' name='[sum:total_published:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[total_seen]' derivation='Sum' name='[sum:total_seen:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[zone_count]' derivation='Sum' name='[sum:zone_count:qk]' pivot='key' type='quantitative' />
-      <column-instance column='[Calculation_9953624965857284]' derivation='User' name='[usr:Calculation_9953624965857284:qk]' pivot='key' type='quantitative' />
-      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
-      <style>
-        <style-rule element='mark'>
-          <encoding attr='color' field='[none:run_at:nk]' type='palette'>
-            <map to='#4e79a7'>
-              <bucket>&quot;2026-07-02T15:33:09.199549+00:00&quot;</bucket>
-            </map>
-          </encoding>
-          <encoding attr='color' field='[:Measure Names]' type='palette'>
-            <map to='#499894'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_malformed:qk]&quot;</bucket>
-            </map>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q]&quot;</bucket>
-            </map>
-            <map to='#4e79a7'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:accepted:qk]&quot;</bucket>
-            </map>
-            <map to='#59a14f'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:max_latency_ms:qk]&quot;</bucket>
-            </map>
-            <map to='#79706e'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:tags_per_zone:qk]&quot;</bucket>
-            </map>
-            <map to='#8cd17d'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:min_latency_ms:qk]&quot;</bucket>
-            </map>
-            <map to='#b07aa1'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:zone_count:qk]&quot;</bucket>
-            </map>
-            <map to='#b6992d'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:poll_cycles:qk]&quot;</bucket>
-            </map>
-            <map to='#bab0ac'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:throughput_msgs_per_s:qk]&quot;</bucket>
-            </map>
-            <map to='#d37295'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:total_published:qk]&quot;</bucket>
-            </map>
-            <map to='#e15759'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[usr:Calculation_9953624965857284:qk]&quot;</bucket>
-            </map>
-            <map to='#f1ce63'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_bad_auth:qk]&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:avg_latency_ms:qk]&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:rejected_unknown_tag:qk]&quot;</bucket>
-            </map>
-            <map to='#fabfd2'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:total_seen:qk]&quot;</bucket>
-            </map>
-            <map to='#ff9d9a'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[sum:run_duration_s:qk]&quot;</bucket>
-            </map>
-            <map to='#ffbe7d'>
-              <bucket>&quot;[federated.05k2l381vpzzc31evlsxm0b4p29q].[__tableau_internal_object_id__].[cnt:Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6:qk]&quot;</bucket>
-            </map>
-          </encoding>
-        </style-rule>
-      </style>
-      <semantic-values>
-        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
-      </semantic-values>
-      <object-graph>
-        <objects>
-          <object caption='Fact_Gateway_Metrics.csv' id='Fact_Gateway_Metrics.csv_5ADAD8A9E4934CA0890EBE6C46F14DF6'>
-            <properties context=''>
-              <relation connection='textscan.1tqafy81hoplh917h1n1z1lwaa6x' name='Fact_Gateway_Metrics.csv' table='[Fact_Gateway_Metrics#csv]' type='table'>
-                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
-                  <column datatype='integer' name='run_id' ordinal='0' />
-                  <column datatype='string' name='run_at' ordinal='1' />
-                  <column datatype='integer' name='zone_count' ordinal='2' />
-                  <column datatype='integer' name='tags_per_zone' ordinal='3' />
-                  <column datatype='integer' name='poll_cycles' ordinal='4' />
-                  <column datatype='integer' name='total_seen' ordinal='5' />
-                  <column datatype='integer' name='accepted' ordinal='6' />
-                  <column datatype='integer' name='rejected_unknown_tag' ordinal='7' />
-                  <column datatype='integer' name='rejected_bad_auth' ordinal='8' />
-                  <column datatype='integer' name='rejected_malformed' ordinal='9' />
-                  <column datatype='integer' name='total_published' ordinal='10' />
-                  <column datatype='real' name='avg_latency_ms' ordinal='11' />
-                  <column datatype='real' name='min_latency_ms' ordinal='12' />
-                  <column datatype='real' name='max_latency_ms' ordinal='13' />
-                  <column datatype='real' name='throughput_msgs_per_s' ordinal='14' />
-                  <column datatype='real' name='run_duration_s' ordinal='15' />
-                </columns>
-              </relation>
-            </properties>
-          </object>
-        </objects>
-      </object-graph>
-    </datasource>
   </datasources>
   <actions>
     <edit-parameter-action caption='Parameter1' name='[Action1_06AEC99087DE4F7187AD269194A06F1B]'>
@@ -1703,91 +1705,123 @@
     </worksheet>
   </worksheets>
   <dashboards>
-    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+    <dashboard enable-sort-zone-taborder='true' name='Ambient IoT - Strategic Asset Health'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Ambient IoT - Strategic Asset Health</run>
+          </formatted-text>
+        </title>
+      </layout-options>
       <style />
       <size maxheight='768' maxwidth='1366' minheight='768' minwidth='1366' preset-index='0' sizing-mode='fixed' />
+      <datasources>
+        <datasource caption='Fact_Telemetry.csv+ (Multiple Connections)' name='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr' />
+      </datasources>
+      <datasource-dependencies datasource='federated.0c0eyyj0rs0j3v137jgqe1v5r2xr'>
+        <column caption='Alert' datatype='boolean' name='[alert]' role='dimension' type='nominal' />
+        <column-instance column='[alert]' derivation='None' name='[none:alert:nk]' pivot='key' type='nominal' />
+      </datasource-dependencies>
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='97916' id='15' param='horz' type-v2='layout-flow' w='98828' x='586' y='1042'>
-            <zone h='97916' id='13' type-v2='layout-basic' w='87115' x='586' y='1042'>
-              <zone h='20442' id='3' param='horz' type-v2='layout-flow' w='87115' x='586' y='1042'>
-                <zone h='20442' id='5' param='horz' type-v2='layout-flow' w='87115' x='586' y='1042'>
-                  <zone h='20442' id='6' name='KPI - CO2' w='29038' x='586' y='1042'>
-                    <layout-cache cell-count-w='1' fixed-size-h='137' type-h='fixed' type-w='cell' />
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='solid' />
-                      <format attr='border-width' value='1' />
-                      <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
-                      <format attr='margin' value='8' />
-                      <format attr='background-color' value='#ffffff' />
-                    </zone-style>
-                  </zone>
-                  <zone h='20442' id='11' name='KPI - Latency' w='29038' x='29624' y='1042'>
-                    <layout-cache cell-count-w='1' type-h='fixed' type-w='cell' />
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='solid' />
-                      <format attr='border-width' value='1' />
-                      <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
-                      <format attr='margin' value='8' />
-                      <format attr='background-color' value='#ffffff' />
-                    </zone-style>
-                  </zone>
-                  <zone h='20442' id='8' name='KPI - Alerts' w='29038' x='58662' y='1042'>
-                    <layout-cache cell-count-w='1' fixed-size-h='137' type-h='fixed' type-w='cell' />
-                    <zone-style>
-                      <format attr='border-color' value='#000000' />
-                      <format attr='border-style' value='solid' />
-                      <format attr='border-width' value='1' />
-                      <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
-                      <format attr='margin' value='8' />
-                      <format attr='background-color' value='#ffffff' />
-                    </zone-style>
+          <zone h='97916' id='37' param='vert' type-v2='layout-flow' w='98828' x='586' y='1042'>
+            <zone h='97916' id='35' param='vert' type-v2='layout-flow' w='98828' x='586' y='1042'>
+              <zone h='97916' id='33' param='vert' type-v2='layout-flow' w='98828' x='586' y='1042'>
+                <zone h='97916' id='31' param='vert' type-v2='layout-flow' w='98828' x='586' y='1042'>
+                  <zone h='97916' id='29' param='vert' type-v2='layout-flow' w='98828' x='586' y='1042'>
+                    <zone h='97916' id='15' param='horz' type-v2='layout-flow' w='98828' x='586' y='1042'>
+                      <zone h='97916' id='13' type-v2='layout-basic' w='87115' x='586' y='1042'>
+                        <zone h='20437' id='3' param='horz' type-v2='layout-flow' w='87115' x='586' y='1042'>
+                          <zone h='20437' id='5' param='horz' type-v2='layout-flow' w='87115' x='586' y='1042'>
+                            <zone h='20437' id='6' name='KPI - CO2' w='29038' x='586' y='1042'>
+                              <layout-cache cell-count-w='1' fixed-size-h='137' type-h='fixed' type-w='cell' />
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='solid' />
+                                <format attr='border-width' value='1' />
+                                <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
+                                <format attr='margin' value='8' />
+                                <format attr='background-color' value='#ffffff' />
+                              </zone-style>
+                            </zone>
+                            <zone h='20437' id='11' name='KPI - Latency' w='29038' x='29624' y='1042'>
+                              <layout-cache cell-count-w='1' type-h='fixed' type-w='cell' />
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='solid' />
+                                <format attr='border-width' value='1' />
+                                <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
+                                <format attr='margin' value='8' />
+                                <format attr='background-color' value='#ffffff' />
+                              </zone-style>
+                            </zone>
+                            <zone h='20437' id='8' name='KPI - Alerts' w='29038' x='58662' y='1042'>
+                              <layout-cache cell-count-w='1' fixed-size-h='137' type-h='fixed' type-w='cell' />
+                              <zone-style>
+                                <format attr='border-color' value='#000000' />
+                                <format attr='border-style' value='solid' />
+                                <format attr='border-width' value='1' />
+                                <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='20' />
+                                <format attr='margin' value='8' />
+                                <format attr='background-color' value='#ffffff' />
+                              </zone-style>
+                            </zone>
+                          </zone>
+                        </zone>
+                        <zone h='38742' id='20' name='Temperature Trend' w='87115' x='586' y='21479'>
+                          <zone-style>
+                            <format attr='border-color' value='#000000' />
+                            <format attr='border-style' value='none' />
+                            <format attr='border-width' value='0' />
+                            <format attr='margin' value='4' />
+                          </zone-style>
+                        </zone>
+                        <zone h='38737' id='23' name='Classification Breakdown' w='43558' x='586' y='60221'>
+                          <zone-style>
+                            <format attr='border-color' value='#000000' />
+                            <format attr='border-style' value='none' />
+                            <format attr='border-width' value='0' />
+                            <format attr='margin' value='4' />
+                          </zone-style>
+                        </zone>
+                        <zone h='38737' id='26' name='Alert By Day' w='43557' x='44144' y='60221'>
+                          <zone-style>
+                            <format attr='border-color' value='#000000' />
+                            <format attr='border-style' value='none' />
+                            <format attr='border-width' value='0' />
+                            <format attr='margin' value='4' />
+                          </zone-style>
+                        </zone>
+                      </zone>
+                      <zone fixed-size='160' h='97916' id='14' is-fixed='true' param='vert' type-v2='layout-flow' w='11713' x='87701' y='1042'>
+                        <zone h='11198' id='24' name='Classification Breakdown' pane-specification-id='0' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:classification:nk]' type-v2='color' w='11713' x='87701' y='1042'>
+                          <zone-style>
+                            <format attr='border-color' value='#000000' />
+                            <format attr='border-style' value='none' />
+                            <format attr='border-width' value='0' />
+                            <format attr='margin' value='4' />
+                          </zone-style>
+                        </zone>
+                        <zone h='5990' id='25' name='Classification Breakdown' pane-specification-id='0' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[cnt:reading_id:qk]' type-v2='size' w='11713' x='87701' y='12240'>
+                          <zone-style>
+                            <format attr='border-color' value='#000000' />
+                            <format attr='border-style' value='none' />
+                            <format attr='border-width' value='0' />
+                            <format attr='margin' value='4' />
+                          </zone-style>
+                        </zone>
+                        <zone h='11589' id='27' name='Alert By Day' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:alert:nk]' type-v2='filter' w='11713' x='87701' y='18230'>
+                          <zone-style>
+                            <format attr='border-color' value='#000000' />
+                            <format attr='border-style' value='none' />
+                            <format attr='border-width' value='0' />
+                            <format attr='margin' value='4' />
+                          </zone-style>
+                        </zone>
+                      </zone>
+                    </zone>
                   </zone>
                 </zone>
-              </zone>
-              <zone h='77474' id='12' name='Latency Over Time' w='43558' x='586' y='21484'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='77474' id='17' name='Security Posture' w='43557' x='44144' y='21484'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-            </zone>
-            <zone fixed-size='160' h='97916' id='14' is-fixed='true' param='vert' type-v2='layout-flow' w='11713' x='87701' y='1042'>
-              <zone h='8594' id='16' name='Latency Over Time' pane-specification-id='1' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' type-v2='color' w='11713' x='87701' y='1042'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='8594' id='18' name='Security Posture' pane-specification-id='0' param='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' type-v2='color' w='11713' x='87701' y='9636'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='2865' id='19' name='Security Posture' pane-specification-id='0' param='[federated.05k2l381vpzzc31evlsxm0b4p29q].[Multiple Values]' type-v2='size' w='11713' x='87701' y='18230'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
               </zone>
             </zone>
           </zone>
@@ -1841,6 +1875,173 @@
         </devicelayout>
       </devicelayouts>
       <simple-id uuid='{42577CC9-B3E5-411C-894C-0CF16A65F806}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Security &amp; Infrastructure'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Edge Security &amp; Pipeline Performance</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='26' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='5250' id='27' type-v2='title' w='98400' x='800' y='1000'>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+            <zone h='92750' id='24' param='vert' type-v2='layout-flow' w='98400' x='800' y='6250'>
+              <zone h='92750' id='22' param='vert' type-v2='layout-flow' w='98400' x='800' y='6250'>
+                <zone h='92750' id='20' param='vert' type-v2='layout-flow' w='98400' x='800' y='6250'>
+                  <zone h='92750' id='18' param='vert' type-v2='layout-flow' w='98400' x='800' y='6250'>
+                    <zone h='92750' id='16' param='vert' type-v2='layout-flow' w='98400' x='800' y='6250'>
+                      <zone h='92750' id='7' param='horz' type-v2='layout-flow' w='98400' x='800' y='6250'>
+                        <zone h='92750' id='5' type-v2='layout-basic' w='82400' x='800' y='6250'>
+                          <zone h='46375' id='3' name='Latency Over Time' w='82400' x='800' y='6250'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='46375' id='9' name='Security Posture' w='41200' x='800' y='52625'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='46375' id='11' name='Live Aws Run' w='41200' x='42000' y='52625'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                        </zone>
+                        <zone fixed-size='160' h='92750' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='16000' x='83200' y='6250'>
+                          <zone h='8250' id='8' name='Latency Over Time' pane-specification-id='1' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' type-v2='color' w='16000' x='83200' y='6250'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='8250' id='10' name='Security Posture' pane-specification-id='0' param='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' type-v2='color' w='16000' x='83200' y='14500'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                          <zone h='8250' id='12' name='Live Aws Run' pane-specification-id='0' param='[federated.08qakk609ht89h10bqf281key2lu].[none:metric:nk]' type-v2='color' w='16000' x='83200' y='22750'>
+                            <zone-style>
+                              <format attr='border-color' value='#000000' />
+                              <format attr='border-style' value='none' />
+                              <format attr='border-width' value='0' />
+                              <format attr='margin' value='4' />
+                            </zone-style>
+                          </zone>
+                        </zone>
+                      </zone>
+                    </zone>
+                  </zone>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='1100' minheight='1100' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='14' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='13' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='49000' id='3' is-fixed='true' name='Latency Over Time' w='82400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8250' id='8' name='Latency Over Time' pane-specification-id='1' param='[federated.0c0eyyj0rs0j3v137jgqe1v5r2xr].[none:zone:nk]' type-v2='color' w='16000' x='83200' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='9' is-fixed='true' name='Security Posture' w='41200' x='800' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8250' id='10' name='Security Posture' pane-specification-id='0' param='[federated.05k2l381vpzzc31evlsxm0b4p29q].[:Measure Names]' type-v2='color' w='16000' x='83200' y='9250'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='11' is-fixed='true' name='Live Aws Run' w='41200' x='42000' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8250' id='12' name='Live Aws Run' pane-specification-id='0' param='[federated.08qakk609ht89h10bqf281key2lu].[none:metric:nk]' type-v2='color' w='16000' x='83200' y='17500'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{11D10BC6-C15E-41B5-8D1D-31CDF572164A}' />
     </dashboard>
   </dashboards>
   <windows source-height='72'>
@@ -1968,8 +2169,14 @@
       </viewpoint>
       <simple-id uuid='{7B500442-F07D-41E8-BEBE-26D20087A9BC}' />
     </window>
-    <window class='dashboard' maximized='true' name='Dashboard 1'>
+    <window class='dashboard' maximized='true' name='Ambient IoT - Strategic Asset Health'>
       <viewpoints>
+        <viewpoint name='Alert By Day'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Classification Breakdown'>
+          <zoom type='entire-view' />
+        </viewpoint>
         <viewpoint name='KPI - Alerts'>
           <zoom type='entire-view' />
         </viewpoint>
@@ -1979,14 +2186,11 @@
         <viewpoint name='KPI - Latency'>
           <zoom type='entire-view' />
         </viewpoint>
-        <viewpoint name='Latency Over Time'>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='Security Posture'>
+        <viewpoint name='Temperature Trend'>
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='17' />
+      <active id='-1' />
       <simple-id uuid='{FFB5858F-85EE-4F2B-978F-40EE2CD4F294}' />
     </window>
     <window class='worksheet' name='Temperature Trend'>
@@ -2102,6 +2306,21 @@
         </edge>
       </cards>
       <simple-id uuid='{D588F40F-EF44-407E-A7AC-5F70E8A4B2A7}' />
+    </window>
+    <window class='dashboard' name='Security &amp; Infrastructure'>
+      <viewpoints>
+        <viewpoint name='Latency Over Time'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Live Aws Run'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Security Posture'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{7A77790D-6B26-4342-9EC3-4C9A9BD92568}' />
     </window>
   </windows>
 </workbook>
