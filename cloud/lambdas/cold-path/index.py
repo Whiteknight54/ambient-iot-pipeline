@@ -9,7 +9,7 @@ to S3 as a CSV row (building up a long-term time-series dataset).
 
 Locally it reads from the hot-path JSONL file written by the hot
 path Lambda and writes a CSV to /tmp/cold_path_aggregates.csv.
-This CSV is the source dataset for the Power BI dashboard.
+This CSV is the source dataset for the Tableau dashboard.
 
 Why batch aggregation matters for the dissertation
 --------------------------------------------------
@@ -19,7 +19,7 @@ The cold path solves this by:
   1. Aggregating readings into per-zone, per-metric summaries.
   2. Computing trend indicators (rolling avg, min/max, alert rate).
   3. Writing compact CSV rows to S3 for long-term storage.
-Power BI then connects to S3 (or the local CSV) to build the
+Tableau then connects to S3 (or the local CSV) to build the
 "Asset Health" and "Carbon Savings" dashboard described in the proposal.
 """
 

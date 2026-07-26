@@ -1,7 +1,7 @@
 """
 BI mock dataset generator.
 
-Generates a realistic 7-day time-series CSV dataset for the Power BI
+Generates a realistic 7-day time-series CSV dataset for the Tableau
 dashboard described in the project proposal. The data simulates what
 the cold-path Lambda would accumulate over a week of real deployment
 at the UWE Frenchay Greenhouse.
@@ -321,7 +321,7 @@ def print_summary(flat_rows: list[dict], star: dict) -> None:
     for name, (_, rows) in star.items():
         print(f"    {name:<25} {len(rows):>6} rows")
     print("=" * 60)
-    print("\n  Power BI import order:")
+    print("\n  Tableau import order:")
     print("  1. Dim_Zone.csv")
     print("  2. Dim_Tag.csv")
     print("  3. Fact_Telemetry.csv")

@@ -149,7 +149,7 @@ class MQTTPublisher:
     def publish(self, translated_message) -> PublishResult:
         """
         Publish one TranslatedMessage. Injects pipeline latency into the
-        payload before publishing so downstream consumers (Lambda, Power BI)
+        payload before publishing so downstream consumers (Lambda, Tableau)
         can see the latency per-message without needing a separate log.
         """
         topic, raw_json = translated_message.to_mqtt()

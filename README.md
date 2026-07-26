@@ -59,7 +59,7 @@ IoT sensors in a cloud-native environment?
                                                                ▼
                                                   ┌──────────────────────────┐
                                                   │    BI Dashboard          │
-                                                  │    Power BI              │
+                                                  │    Tableau              │
                                                   │    Star Schema model     │
                                                   └──────────────────────────┘
 ```
@@ -93,7 +93,7 @@ ambient-iot-pipeline/
 ├── bi/                        # Stage 4: Business Intelligence
 │   ├── generate_dataset.py    # 7-day simulation dataset generator
 │   ├── dataset_mock.csv       # 20,160 row flat dataset
-│   ├── star_schema/           # Dimensional model for Power BI
+│   ├── star_schema/           # Dimensional model for Tableau
 │   │   ├── Fact_Telemetry.csv
 │   │   ├── Fact_Gateway_Metrics.csv
 │   │   ├── Dim_Zone.csv
@@ -247,7 +247,7 @@ Lambda functions, DynamoDB table, and S3 bucket in one apply.
 
 ---
 
-## Power BI Dashboard
+## Tableau Dashboard
 
 Import the Star Schema CSVs from `bi/star_schema/` in this order:
 
