@@ -5,3 +5,6 @@ __pycache__/
 *.pyc
 infra/env/
 infra/certs/
+
+# Tableau temp/recovery files
+bi/~*.twbr

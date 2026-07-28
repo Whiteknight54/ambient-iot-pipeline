@@ -21,13 +21,30 @@ Dataset design
 1. Asset Health      - temperature trends per zone over time
 2. Alert Events      - when and where thresholds were breached
 3. Signal Quality    - RSSI per zone (location/coverage health)
-4. Carbon Savings    - battery-less vs battery-powered comparison
-                       (Journal of Green Engineering, 2023)
+4. Carbon Savings    - battery-less vs battery-powered comparison,
+                       derived from Maistriaux et al. (2022)
 
 Carbon savings model
 --------------------
-    battery_co2_g = readings * 0.5g   (AA battery amortised)
-    ambient_co2_g = readings * 0.02g  (RF harvesting overhead)
+    battery_co2_g = readings * 0.5g   (battery-powered node, amortised)
+    ambient_co2_g = readings * 0.02g  (ambient tag overhead, assumption)
+
+Coefficient derivation:
+    Maistriaux, P., Pirson, T., Schramme, M., Louveaux, J. and Bol, D.
+    (2022) 'Modeling the carbon footprint of battery-powered IoT sensor
+    nodes for environmental-monitoring applications', Proceedings of the
+    12th International Conference on the Internet of Things (IoT '22),
+    pp. 9-16. https://doi.org/10.1145/3567445.3567448
+
+    Their LCA reports a yearly footprint of roughly 1-10 kgCO2eq per
+    battery-powered node (Fig. 7), depending on transmission rate,
+    node-base station distance and battery capacity, dominated by node
+    production (3.65 kgCO2eq) and battery-replacement maintenance.
+    Amortised over hourly readings (~8,760/year) this yields on the
+    order of 0.1-1 g CO2eq per reading; 0.5 g is adopted as a mid-range
+    coefficient. The 0.02 g ambient overhead is a project assumption
+    covering the shared gateway/cloud ingestion cost per reading
+    (energy harvesting is explicitly out of scope of the source model).
 """
 
 from __future__ import annotations
@@ -326,14 +343,13 @@ def print_summary(flat_rows: list[dict], star: dict) -> None:
     print("  2. Dim_Tag.csv")
     print("  3. Fact_Telemetry.csv")
     print("  4. Fact_Gateway_Metrics.csv")
-    print("\n  Suggested DAX measures:")
-    print("  Avg_Ingestion_Latency    = AVERAGE(Fact_Telemetry[pipeline_latency_ms])")
-    print("  Alert_Rate_Pct           = DIVIDE(COUNTROWS(FILTER(Fact_Telemetry,")
-    print("                               Fact_Telemetry[alert]=TRUE())),")
-    print("                               COUNTROWS(Fact_Telemetry),0)*100")
-    print("  Rogue_Rejection_Rate_Pct = DIVIDE(SUM(Fact_Gateway_Metrics[rejected_unknown_tag]),")
-    print("                               SUM(Fact_Gateway_Metrics[total_seen]),0)")
-    print("  CO2_Saved_g              = MAX(Fact_Telemetry[battery_co2_saved_g])")
+    print("\n  Suggested Tableau calculated fields:")
+    print("  Avg_Ingestion_Latency    = AVG([Pipeline Latency Ms])")
+    print("  Alert_Rate_Pct           = SUM(IF [Alert] THEN 1 ELSE 0 END)")
+    print("                               / COUNT([Reading Id]) * 100")
+    print("  Rogue_Rejection_Rate_Pct = SUM([Rejected Unknown Tag])")
+    print("                               / SUM([Total Seen]) * 100")
+    print("  CO2_Saved_g              = MAX([Battery Co2 Saved G])")
 
 
 if __name__ == "__main__":
