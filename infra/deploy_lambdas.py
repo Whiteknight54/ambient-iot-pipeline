@@ -62,7 +62,7 @@ def _update(lam, name: str, source: Path, env_vars: dict) -> None:
 
 def run() -> None:
     print("\n" + "=" * 60)
-    print("  LAMBDA REDEPLOYMENT — eu-west-2 (London)")
+    print("  LAMBDA REDEPLOYMENT - eu-west-2 (London)")
     print("=" * 60)
 
     if not CONFIG.exists():

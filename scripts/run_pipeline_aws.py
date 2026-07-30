@@ -61,7 +61,7 @@ def run() -> None:
     config = load_config()
 
     print("\n" + "=" * 60)
-    print("  AMBIENT IoT PIPELINE — AWS IoT Core")
+    print("  AMBIENT IoT PIPELINE - AWS IoT Core")
     print("=" * 60)
     print(f"  Endpoint : {config['endpoint']}")
     print(f"  Region   : {config['region']}")
@@ -87,7 +87,7 @@ def run() -> None:
 
     connected = publisher.connect()
     if not connected:
-        logger.error("Could not connect to AWS IoT Core — check certs and endpoint")
+        logger.error("Could not connect to AWS IoT Core - check certs and endpoint")
         sys.exit(1)
 
     logger.info("Connected to AWS IoT Core ✅")

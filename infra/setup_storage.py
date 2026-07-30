@@ -99,7 +99,7 @@ def create_dynamodb_table(dynamodb: any) -> str:
 def update_config(s3_bucket: str, dynamodb_table: str) -> None:
     """Add storage config to aws_config.json."""
     if not CONFIG_PATH.exists():
-        print(f"  ⚠️  {CONFIG_PATH} not found — run setup_aws_iot.py first")
+        print(f"  ⚠️  {CONFIG_PATH} not found - run setup_aws_iot.py first")
         return
     config = json.loads(CONFIG_PATH.read_text())
     config["s3_bucket"]      = s3_bucket
@@ -129,7 +129,7 @@ def grant_lambda_storage_access(iam: any) -> None:
 
 def run() -> None:
     print("\n" + "=" * 60)
-    print("  AWS STORAGE SETUP — eu-west-2 (London)")
+    print("  AWS STORAGE SETUP - eu-west-2 (London)")
     print("=" * 60)
 
     session  = boto3.Session(region_name=REGION)

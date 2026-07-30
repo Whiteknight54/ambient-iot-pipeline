@@ -5,15 +5,15 @@ Run this once to provision all required AWS resources for the
 ambient IoT pipeline in eu-west-2 (London).
 
 What this creates:
-  1. IoT Thing        — represents the MikroTik edge gateway
-  2. X.509 Certificate — TLS identity for the gateway connection
-  3. IoT Policy       — grants the gateway permission to publish
-  4. IoT Rule         — routes MQTT messages to the hot-path Lambda
-  5. Lambda functions — deploys hot and cold path from local code
+  1. IoT Thing        - represents the MikroTik edge gateway
+  2. X.509 Certificate - TLS identity for the gateway connection
+  3. IoT Policy       - grants the gateway permission to publish
+  4. IoT Rule         - routes MQTT messages to the hot-path Lambda
+  5. Lambda functions - deploys hot and cold path from local code
 
 Outputs:
-  infra/certs/          — certificate files (in .gitignore, never commit)
-  infra/aws_config.json — endpoint + resource ARNs for the pipeline
+  infra/certs/          - certificate files (in .gitignore, never commit)
+  infra/aws_config.json - endpoint + resource ARNs for the pipeline
 
 Usage:
     python3 infra/setup_aws_iot.py
@@ -94,9 +94,9 @@ def create_certificates(iot: any) -> dict:
     )
 
     print(f"  ✅ Certificates saved to {CERT_DIR}/")
-    print(f"     device.pem.crt   — device certificate")
-    print(f"     private.pem.key  — private key (keep secret)")
-    print(f"     AmazonRootCA1.pem — AWS root CA")
+    print(f"     device.pem.crt   - device certificate")
+    print(f"     private.pem.key  - private key (keep secret)")
+    print(f"     AmazonRootCA1.pem - AWS root CA")
 
     return {
         "certificateArn": resp["certificateArn"],
@@ -137,7 +137,7 @@ def create_policy(iot: any) -> str:
 
 def attach_resources(iot: any, cert_arn: str, policy_name: str, thing_name: str) -> None:
     if not cert_arn:
-        print("  ⚠️  Skipping attach — no certificate ARN available")
+        print("  ⚠️  Skipping attach - no certificate ARN available")
         return
     try:
         iot.attach_policy(policyName=policy_name, target=cert_arn)
@@ -277,7 +277,7 @@ def save_config(config: dict) -> None:
 
 def run() -> None:
     print("\n" + "=" * 60)
-    print("  AWS IoT CORE SETUP — eu-west-2 (London)")
+    print("  AWS IoT CORE SETUP - eu-west-2 (London)")
     print("=" * 60)
 
     session    = boto3.Session(region_name=REGION)

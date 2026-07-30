@@ -265,7 +265,7 @@ def generate() -> tuple[list[dict], dict[str, list]]:
         for zone, cfg in ZONES.items()
     ]
 
-    # Fact_Gateway_Metrics — load from saved run or use defaults
+    # Fact_Gateway_Metrics - load from saved run or use defaults
     if METRICS_PATH.exists():
         m = json.loads(METRICS_PATH.read_text())
         gw  = m.get("gateway_stats", {})
