@@ -315,5 +315,5 @@ Full reference list in dissertation report.
 | 4 | BI dashboard (Star Schema + Tableau calculated fields) | ✅ Complete |
 | - | 18/18 tests passing | ✅ |
 | - | Evaluation metrics captured | ✅ |
-| - | AWS deployment (IoT Core wiring) | 🔲 Pending |
+| - | AWS deployment (IoT Core wiring) | ✅ Complete |
 | - | Dissertation report | 🔲 In progress |
