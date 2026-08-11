@@ -196,7 +196,13 @@ python -m pip install -r requirements.txt
 
 Windows bootstrap:
 ```powershell
-scripts\\bootstrap.ps1
+Set-ExecutionPolicy -Scope Process Bypass -Force
+.\scripts\bootstrap.ps1
+```
+
+If `python` resolves to the Microsoft Store alias on your machine, pass an explicit interpreter path:
+```powershell
+.\scripts\bootstrap.ps1 -Python "C:\Users\USER\AppData\Local\Programs\Python\Python312\python.exe"
 ```
 
 ### Run the full pipeline
