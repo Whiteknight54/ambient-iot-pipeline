@@ -1,7 +1,7 @@
 # =============================================================
 # mikrotik_config.rsc
-# Edge Gateway Network Configuration - Ambient IoT Pipeline
-# RouterOS v7.x | Author: Whiteknight54
+# Edge Gateway Network Configuration for Ambient IoT Pipeline
+# RouterOS v7.23.3 | Author: Whiteknight54
 #
 # Purpose: Isolate the Ambient IoT perception/edge layer on a
 # dedicated VLAN and enforce a default-deny firewall so that
@@ -9,10 +9,10 @@
 # can leave the segment.
 #
 # Control mapping:
-#   - Segmentation & least privilege : NIST SP 800-160 (trustworthy
-#     secure design); ISO/IEC 27001:2022 A.8.22 (network segregation)
-#   - Default-deny egress            : ISO/IEC 27001:2022 A.8.20/A.8.21
-#   - Zero-Trust posture             : no implicit trust between VLANs
+# Segmentation & least privilege : NIST SP 800-160 (trustworthy
+# secure design); ISO/IEC 27001:2022 A.8.22 (network segregation)
+# Default-deny egress            : ISO/IEC 27001:2022 A.8.20/A.8.21qq
+# Zero-Trust posture             : no implicit trust between VLANs
 # =============================================================
 
 # --- 1. Bridge with VLAN filtering -----------------------------
@@ -49,6 +49,9 @@ add bridge=br-core tagged=br-core untagged=ether3 vlan-ids=20
 /ip address
 add address=192.168.10.1/24 interface=vlan10-mgmt comment="Mgmt gateway"
 add address=192.168.20.1/24 interface=vlan20-aiot comment="IoT gateway"
+
+/ip dhcp-client
+add interface=ether1 name=client1 comment="WAN uplink"
 
 # --- 6. DHCP for the IoT segment -------------------------------
 /ip pool
@@ -112,4 +115,11 @@ set winbox address=192.168.10.0/24
 /ip dns
 set allow-remote-requests=yes servers=1.1.1.1,8.8.8.8
 
+/ip dns static
+add name=a2f7tdbrmlxjya-ats.iot.eu-west-2.amazonaws.com address=18.130.194.66 \
+    ttl=1h type=A
+
 # --- End of configuration --------------------------------------
+
+/system clock
+set time-zone-name=Europe/London
