@@ -107,7 +107,7 @@ class AmbientTag:
 
 class TagSwarm:
     """Manages a population of simulated tags across zones, e.g. modelling
-    the UWE Frenchay Greenhouse layout referenced in the project proposal."""
+    the multi-zone greenhouse layout referenced in the project proposal."""
 
     def __init__(self, zones: list[str], tags_per_zone: int = 5, seed: int | None = None):
         if seed is not None:

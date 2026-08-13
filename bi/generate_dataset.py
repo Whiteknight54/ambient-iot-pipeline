@@ -4,7 +4,8 @@ BI mock dataset generator.
 Generates a realistic 7-day time-series CSV dataset for the Tableau
 dashboard described in the project proposal. The data simulates what
 the cold-path Lambda would accumulate over a week of real deployment
-at the UWE Frenchay Greenhouse.
+at a climate-controlled greenhouse facility, calibrated against publicly
+available greenhouse telemetry data (Abdullah and Lifta, 2024).
 
 Run:
     python3 bi/generate_dataset.py
@@ -62,10 +63,10 @@ METRICS_PATH  = Path(__file__).parents[1] / "docs" / "evaluation" / "aiot_metric
 
 ZONES = {
     "greenhouse-A": {"base_temp": 20.0, "rssi_base": -58.0,
-                     "location": "North wing, UWE Frenchay",
+                     "location": "North wing, greenhouse facility",
                      "optimal_temp_range": "18-26°C"},
     "greenhouse-B": {"base_temp": 22.0, "rssi_base": -63.0,
-                     "location": "South wing, UWE Frenchay",
+                     "location": "South wing, greenhouse facility",
                      "optimal_temp_range": "18-26°C"},
 }
 

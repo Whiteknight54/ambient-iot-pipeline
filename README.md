@@ -24,8 +24,8 @@ IoT sensors in a cloud-native environment?
 
 **Project objectives:**
 
-1. Design and develop a technical artefact (high-fidelity simulation of UWE Frenchay
-   Greenhouse) that translates raw Ambient IoT backscatter signals into secure MQTT
+1. Design and develop a technical artefact (high-fidelity greenhouse simulation,
+   calibrated against publicly available greenhouse telemetry data) that translates raw Ambient IoT backscatter signals into secure MQTT
    data streams.
 2. Implement a lightweight authentication and security framework at the Edge layer -
    including VLAN segmentation and firewalling - to protect data integrity for devices
@@ -75,7 +75,7 @@ ambient-iot-pipeline/
 │
 ├── perception-layer/          # Stage 1: Simulated battery-less tag engine
 │   ├── app/tag_simulator.py   # Probabilistic energy-harvesting model
-│   ├── config/config.json     # Zone configuration (UWE Frenchay Greenhouse)
+│   ├── config/config.json     # Zone configuration (multi - zone Greenhouse)
 │   └── tests/                 # 2 unit tests
 │
 ├── edge-gateway/              # Stage 2: MikroTik auth + protocol translation
@@ -98,7 +98,7 @@ ambient-iot-pipeline/
 │   │   ├── Fact_Gateway_Metrics.csv
 │   │   ├── Dim_Zone.csv
 │   │   └── Dim_Tag.csv
-│   └── ambient_iot_dashboard.pbix
+│   └── Book1.twb
 │
 ├── docs/
 │   ├── architecture/          # SVG pipeline, sequence, deployment diagrams
