@@ -49,10 +49,13 @@ logger = logging.getLogger("pipeline")
 
 # ── Config ────────────────────────────────────────────────────────────────────
 
-ZONES = ["greenhouse-A", "greenhouse-B", "greenhouse-C", "greenhouse-D"]
-TAGS_PER_ZONE = 25
-POLL_CYCLES = 30
-POLL_INTERVAL_S = 0.2
+# Baseline config (see docs/evaluation/aiot_metrics.json)
+# Stress config used for aiot_metrics_stress.json:
+#   4 zones, TAGS_PER_ZONE=25, POLL_CYCLES=30, POLL_INTERVAL_S=0.2
+ZONES = ["greenhouse-A", "greenhouse-B"]
+TAGS_PER_ZONE = 5
+POLL_CYCLES = 10
+POLL_INTERVAL_S = 0.5
 INJECT_ROGUES = True
 METRICS_OUTPUT = Path("/tmp/aiot_metrics.json")
 SEED = 42
