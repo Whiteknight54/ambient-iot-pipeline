@@ -11,7 +11,7 @@
 # Control mapping:
 # Segmentation & least privilege : NIST SP 800-160 (trustworthy
 # secure design); ISO/IEC 27001:2022 A.8.22 (network segregation)
-# Default-deny egress            : ISO/IEC 27001:2022 A.8.20/A.8.21qq
+# Default-deny egress            : ISO/IEC 27001:2022 A.8.20/A.8.21
 # Zero-Trust posture             : no implicit trust between VLANs
 # =============================================================
 
