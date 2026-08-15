@@ -1,0 +1,34 @@
+{
+  "run_at": "2026-08-15T00:46:28.610512+00:00",
+  "target": "aws_iot_core",
+  "endpoint": "a2f7tdbrmlxjya-ats.iot.eu-west-2.amazonaws.com",
+  "region": "eu-west-2",
+  "config": {
+    "zones": [
+      "greenhouse-A",
+      "greenhouse-B",
+      "greenhouse-C",
+      "greenhouse-D"
+    ],
+    "tags_per_zone": 25,
+    "poll_cycles": 30,
+    "seed": 42
+  },
+  "gateway_stats": {
+    "accepted": 1230,
+    "rejected_unknown_tag": 10,
+    "rejected_bad_auth": 0,
+    "rejected_malformed": 0,
+    "total_seen": 1240
+  },
+  "publisher_stats": {
+    "total_published": 1230,
+    "total_failed": 0,
+    "avg_latency_ms": 4.442,
+    "min_latency_ms": 0.0,
+    "max_latency_ms": 14.062,
+    "sample_count": 1230
+  },
+  "run_duration_s": 6.24,
+  "throughput_msgs_per_s": 197.12
+}
