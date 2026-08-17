@@ -33,7 +33,7 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='cold_path_live' name='textscan.05js8h50rk4ryb1g7224z111rilm'>
-            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi' filename='cold_path_live.csv' password='' server='' />
+            <connection class='textscan' directory='C:/Users/USER/ambient-iot-pipeline/bi' filename='cold_path_live.csv' password='' server='' />
           </named-connection>
         </named-connections>
         <relation connection='textscan.05js8h50rk4ryb1g7224z111rilm' name='cold_path_live.csv' table='[cold_path_live#csv]' type='table'>
@@ -271,7 +271,7 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='Fact_Gateway_Metrics' name='textscan.1tqafy81hoplh917h1n1z1lwaa6x'>
-            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Fact_Gateway_Metrics.csv' password='' server='' />
+            <connection class='textscan' directory='C:/Users/USER/ambient-iot-pipeline/bi/star_schema' filename='Fact_Gateway_Metrics.csv' password='' server='' />
           </named-connection>
         </named-connections>
         <relation connection='textscan.1tqafy81hoplh917h1n1z1lwaa6x' name='Fact_Gateway_Metrics.csv' table='[Fact_Gateway_Metrics#csv]' type='table'>
@@ -648,16 +648,16 @@
       <connection class='federated'>
         <named-connections>
           <named-connection caption='Fact_Gateway_Metrics' name='textscan.0jxz92w0qvjuf81f7nakp09n83ae'>
-            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Fact_Gateway_Metrics.csv' password='' server='' />
+            <connection class='textscan' directory='C:/Users/USER/ambient-iot-pipeline/bi/star_schema' filename='Fact_Gateway_Metrics.csv' password='' server='' />
           </named-connection>
           <named-connection caption='Dim_Zone' name='textscan.1wb8w1y0obti161gajj9e10dbw19'>
-            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Dim_Zone.csv' password='' server='' />
+            <connection class='textscan' directory='C:/Users/USER/ambient-iot-pipeline/bi/star_schema' filename='Dim_Zone.csv' password='' server='' />
           </named-connection>
           <named-connection caption='Fact_Telemetry' name='textscan.1iptur10hmvor212y7ri519iwvac'>
-            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Fact_Telemetry.csv' password='' server='' />
+            <connection class='textscan' directory='C:/Users/USER/ambient-iot-pipeline/bi/star_schema' filename='Fact_Telemetry.csv' password='' server='' />
           </named-connection>
           <named-connection caption='Dim_Tag' name='textscan.1fgb4hk0499w0o1bg1idh1tihibj'>
-            <connection class='textscan' directory='C:/Users/Admin/ambient-iot-pipeline/bi/star_schema' filename='Dim_Tag.csv' password='' server='' />
+            <connection class='textscan' directory='C:/Users/USER/ambient-iot-pipeline/bi/star_schema' filename='Dim_Tag.csv' password='' server='' />
           </named-connection>
         </named-connections>
         <relation type='collection'>

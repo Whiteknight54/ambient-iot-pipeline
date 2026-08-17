@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-08-13T18:54:01.729051+00:00",
+  "run_at": "2026-08-17T16:43:08.185315+00:00",
   "config": {
     "zones": [
       "greenhouse-A",
@@ -8,25 +8,25 @@
       "greenhouse-D"
     ],
     "tags_per_zone": 25,
-    "poll_cycles": 30,
+    "poll_cycles": 75,
     "poll_interval_s": 0.2,
     "seed": 42
   },
   "gateway_stats": {
-    "accepted": 1230,
-    "rejected_unknown_tag": 10,
-    "rejected_bad_auth": 0,
+    "accepted": 3046,
+    "rejected_unknown_tag": 25,
+    "rejected_bad_auth": 15,
     "rejected_malformed": 0,
-    "total_seen": 1240
+    "total_seen": 3086
   },
   "publisher_stats": {
-    "total_published": 1230,
+    "total_published": 3046,
     "total_failed": 0,
-    "avg_latency_ms": 2.042,
-    "min_latency_ms": 0.288,
-    "max_latency_ms": 4.457,
-    "sample_count": 1230
+    "avg_latency_ms": 6.596,
+    "min_latency_ms": 0.51,
+    "max_latency_ms": 30.459,
+    "sample_count": 3046
   },
-  "run_duration_s": 6.21,
-  "throughput_msgs_per_s": 198.07
+  "run_duration_s": 15.82,
+  "throughput_msgs_per_s": 192.54
 }
