@@ -53,18 +53,30 @@ class MalformedPacketError(GatewayError):
     pass
 
 
-def compute_mac(psk: str, raw_payload: bytes) -> str:
-    """Compute an HMAC-SHA256 MAC over a raw payload using the tag's PSK.
+def canonical_body(payload: dict) -> bytes:
+    """Deterministic byte serialisation of a payload, excluding the MAC field.
 
-    In the real device, this would be computed on-tag (within its limited
-    compute budget) and appended to the backscatter transmission. The
-    simulator currently does not attach a MAC to keep tag-side logic
-    minimal; EdgeGateway.ingest() re-derives the expected MAC itself using
-    the known PSK registry, which is equivalent for evaluation purposes
-    (it proves the gateway *can* validate authenticity) while keeping the
-    tag model simple. See docs/security-model.md for the full discussion.
+    Must match the tag-side canonicalisation in tag_simulator.py exactly:
+    same separators, same key ordering. Any divergence causes every MAC
+    check to fail.
     """
-    return hmac.new(psk.encode(), raw_payload, hashlib.sha256).hexdigest()
+    return json.dumps(
+        {k: v for k, v in payload.items() if k != "mac"},
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+
+
+def compute_mac(psk: str, payload: dict) -> str:
+    """Compute the expected HMAC-SHA256 tag for a payload under a given PSK.
+
+    The tag computes this on-device within its power budget and appends it
+    to the backscatter transmission; the gateway recomputes it from its own
+    copy of the key and compares. A single keyed hash is used rather than a
+    handshake because the device class being modelled cannot hold session
+    state between transmissions (3GPP, 2025).
+    """
+    return hmac.new(psk.encode("utf-8"), canonical_body(payload), hashlib.sha256).hexdigest()
 
 
 @dataclass
@@ -105,7 +117,6 @@ class GatewayStats:
             "total_seen": self.total_seen,
         }
 
-
 class EdgeGateway:
     """Validates and translates raw ambient IoT backscatter into MQTT.
 
@@ -125,11 +136,25 @@ class EdgeGateway:
         except (json.JSONDecodeError, UnicodeDecodeError) as exc:
             raise MalformedPacketError(str(exc)) from exc
 
-    def _authenticate(self, tag_id: str, raw: bytes) -> None:
-        """Reject packets from tags the gateway hasn't provisioned a key
-        for. (See TranslatedMessage docstring on MAC simulation.)"""
+def _authenticate(self, tag_id: str, payload: dict) -> None:
+        """Two-stage rejection, counted separately for evaluation purposes.
+
+        Stage 1 rejects tag IDs the gateway has never been provisioned for.
+        Stage 2 rejects packets whose MAC does not verify under the known
+        key -- this catches an adversary who has observed a legitimate tag
+        ID (trivially available over the air) but does not hold its key,
+        and it catches payloads altered in transit.
+        """
         if tag_id not in self.known_keys:
             raise UnknownTagError(tag_id)
+
+        supplied_mac = payload.get("mac")
+        if not isinstance(supplied_mac, str):
+            raise AuthenticationError(f"{tag_id}: no MAC supplied")
+
+        expected_mac = compute_mac(self.known_keys[tag_id], payload)
+        if not hmac.compare_digest(expected_mac, supplied_mac):
+            raise AuthenticationError(f"{tag_id}: MAC verification failed")
 
     def ingest(self, raw: bytes) -> TranslatedMessage | None:
         """Process one raw backscatter packet. Returns a TranslatedMessage
@@ -147,9 +172,12 @@ class EdgeGateway:
             raise MalformedPacketError("missing tag id")
 
         try:
-            self._authenticate(tag_id, raw)
+            self._authenticate(tag_id, payload)
         except UnknownTagError:
             self.stats.rejected_unknown_tag += 1
+            raise
+        except AuthenticationError:
+            self.stats.rejected_bad_auth += 1
             raise
 
         self.stats.accepted += 1
@@ -178,10 +206,9 @@ class EdgeGateway:
                 logger.warning("rejected packet: %s: %s", type(exc).__name__, exc)
         return out
 
-
-def inject_rogue_packet(zone: str = "greenhouse-A") -> bytes:
+def inject_rogue_packet(zone: str = "zone-a") -> bytes:
     """Build a packet impersonating a tag id the gateway has never seen --
-    used in tests/evaluation to demonstrate rogue-signal rejection."""
+    used in tests/evaluation to demonstrate unknown-tag rejection."""
     payload = {
         "id": "deadbeef0000",
         "zone": zone,
@@ -189,4 +216,32 @@ def inject_rogue_packet(zone: str = "greenhouse-A") -> bytes:
         "metric": "temperature_c",
         "value": 999.9,
     }
+    payload["mac"] = compute_mac("not-the-real-key", payload)
+    return json.dumps(payload, separators=(",", ":")).encode("utf-8")
+
+def inject_spoofed_packet(tag_id: str, zone: str = "zone-a") -> bytes:
+    """Build a packet using a *legitimate* tag id but the wrong key.
+
+    Models the realistic adversary: tag identifiers travel unencrypted over
+    the air and can be harvested by any listener, so an allowlist alone is
+    insufficient. Only MAC verification rejects this.
+    """
+    payload = {
+        "id": tag_id,
+        "zone": zone,
+        "ts": time.time(),
+        "metric": "temperature_c",
+        "value": 999.9,
+    }
+    payload["mac"] = compute_mac("attacker-guessed-key", payload)
+    return json.dumps(payload, separators=(",", ":")).encode("utf-8")
+
+def inject_tampered_packet(raw: bytes, new_value: float = 999.9) -> bytes:
+    """Take a genuine packet and alter its reading, leaving the MAC intact.
+
+    Demonstrates payload integrity rather than origin authentication: the
+    tag id and MAC are authentic, but the value no longer matches.
+    """
+    payload = json.loads(raw.decode("utf-8"))
+    payload["value"] = new_value
     return json.dumps(payload, separators=(",", ":")).encode("utf-8")

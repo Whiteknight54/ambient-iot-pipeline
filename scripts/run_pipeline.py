@@ -112,7 +112,7 @@ def run(cycles: int = POLL_CYCLES) -> dict:
         if INJECT_ROGUES and cycle_num % 3 == 0:
             raw_packets.append(inject_rogue_packet())
         if INJECT_ROGUES and cycle_num % 5 == 0:
-            raw_packets.append(inject_spoofed_packet(next(iter(swarm.keys_by_tag_id())
+            raw_packets.append(inject_spoofed_packet(next(iter(swarm.keys_by_tag_id()))))
         translated = gateway.ingest_batch(raw_packets)
         results = publisher.publish_batch(translated)
 

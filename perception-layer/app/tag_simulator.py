@@ -24,6 +24,8 @@ section):
 
 from __future__ import annotations
 
+import hashlib
+import hmac
 import json
 import random
 import time
@@ -86,6 +88,20 @@ class AmbientTag:
             "ts": time.time(),
             **reading,
         }
+     def _canonical_body(self, payload: dict) -> bytes:
+        """Deterministic byte serialisation of the payload, excluding the MAC.
+
+        Both tag and gateway must derive identical bytes or every MAC check
+        fails, so key order is fixed with sort_keys. This canonicalisation is
+        deliberately duplicated in auth_bridge.py rather than shared: on real
+        hardware the tag firmware and the gateway are separate codebases, and
+        a shared import would misrepresent that boundary.
+        """
+        return json.dumps(
+            {k: v for k, v in payload.items() if k != "mac"},
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
 
     def backscatter(self) -> bytes | None:
         """Produce one raw backscatter transmission, or None if the tag
@@ -94,10 +110,20 @@ class AmbientTag:
         Returns raw bytes (not JSON/MQTT) to model the fact that the tag
         itself speaks no IP-based protocol -- translation happens at the
         gateway, not here.
+
+        The tag appends an HMAC-SHA256 tag over the payload, keyed on its
+        pre-shared key. This is the one cryptographic operation the device
+        class can plausibly afford: a single hash over a few dozen bytes,
+        with no handshake, no session state and no certificate storage.
         """
         payload = self._raw_payload()
         if payload is None:
             return None
+        payload["mac"] = hmac.new(
+            self.psk.encode("utf-8"),
+            self._canonical_body(payload),
+            hashlib.sha256,
+        ).hexdigest()
         # Minimal binary-ish encoding: compact JSON, no whitespace.
         # A real implementation would use a bit-packed format; compact JSON
         # is used here for readability while still being clearly distinct

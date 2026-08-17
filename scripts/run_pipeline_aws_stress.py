@@ -108,7 +108,8 @@ def run() -> None:
         logger.info(
             "cycle %02d | polled=%d auth_ok=%d published=%d rogues=%d",
             cycle_num, len(raw_packets), len(translated),
-            published, gateway.stats.rejected_unknown_tag,gateway.stats.rejected_bad_auth,
+            published, gateway.stats.rejected_unknown_tag,
+            gateway.stats.rejected_bad_auth,
         )
         time.sleep(POLL_INTERVAL_S)
 
