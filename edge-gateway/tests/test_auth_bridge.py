@@ -28,7 +28,7 @@ from auth_bridge import (
 
 
 def test_legitimate_tags_are_accepted_and_translated():
-    swarm = TagSwarm(zones=["zone-a"], tags_per_zone=10, seed=1)
+    swarm = TagSwarm(zones=["greenhouse-A"], tags_per_zone=10, seed=1)
     gateway = EdgeGateway(known_keys=swarm.keys_by_tag_id())
 
     raw_packets = []
@@ -44,12 +44,12 @@ def test_legitimate_tags_are_accepted_and_translated():
     assert gateway.stats.rejected_unknown_tag == 0
 
     topic, mqtt_json = translated[0].to_mqtt()
-    assert topic.startswith("aiot/telemetry/zone-a/")
+    assert topic.startswith("aiot/telemetry/greenhouse-A/")
     assert "tag_id" in mqtt_json
 
 
 def test_rogue_packet_is_rejected():
-    swarm = TagSwarm(zones=["zone-a"], tags_per_zone=5, seed=2)
+    swarm = TagSwarm(zones=["greenhouse-A"], tags_per_zone=5, seed=2)
     gateway = EdgeGateway(known_keys=swarm.keys_by_tag_id())
 
     rogue = inject_rogue_packet()
@@ -65,7 +65,7 @@ def test_rogue_packet_is_rejected():
 
 
 def test_mixed_batch_rejects_rogue_but_keeps_legitimate():
-    swarm = TagSwarm(zones=["zone-a"], tags_per_zone=5, seed=3)
+    swarm = TagSwarm(zones=["greenhouse-A"], tags_per_zone=5, seed=3)
     gateway = EdgeGateway(known_keys=swarm.keys_by_tag_id())
 
     legit = swarm.poll_cycle()
@@ -81,7 +81,7 @@ def test_mixed_batch_rejects_rogue_but_keeps_legitimate():
 def test_spoofed_packet_with_valid_tag_id_is_rejected():
     """An adversary who has harvested a legitimate tag id over the air, but
     does not hold the pre-shared key, must still be rejected."""
-    swarm = TagSwarm(zones=["zone-a"], tags_per_zone=5, seed=4)
+    swarm = TagSwarm(zones=["greenhouse-A"], tags_per_zone=5, seed=4)
     gateway = EdgeGateway(known_keys=swarm.keys_by_tag_id())
 
     legit_tag_id = next(iter(swarm.keys_by_tag_id()))
@@ -101,7 +101,7 @@ def test_spoofed_packet_with_valid_tag_id_is_rejected():
 def test_tampered_payload_is_rejected():
     """A genuine packet whose reading is altered in transit must fail the
     MAC check -- this is integrity, not just origin authentication."""
-    swarm = TagSwarm(zones=["zone-a"], tags_per_zone=10, seed=5)
+    swarm = TagSwarm(zones=["greenhouse-A"], tags_per_zone=10, seed=5)
     gateway = EdgeGateway(known_keys=swarm.keys_by_tag_id())
 
     genuine = None
@@ -125,7 +125,7 @@ def test_tampered_payload_is_rejected():
 
 def test_mac_is_not_forwarded_to_cloud():
     """The MAC is consumed at the gateway; it must not leak downstream."""
-    swarm = TagSwarm(zones=["zone-a"], tags_per_zone=10, seed=6)
+    swarm = TagSwarm(zones=["greenhouse-A"], tags_per_zone=10, seed=6)
     gateway = EdgeGateway(known_keys=swarm.keys_by_tag_id())
 
     packets = []
