@@ -28,7 +28,7 @@ sys.path.insert(0, str(repo_root / "perception-layer" / "app"))
 sys.path.insert(0, str(repo_root / "edge-gateway" / "app"))
 
 from tag_simulator import TagSwarm
-from auth_bridge import EdgeGateway, inject_rogue_packet
+from auth_bridge import EdgeGateway, inject_rogue_packet, inject_spoofed_packet
 from mqtt_publisher import MQTTPublisher
 
 logging.basicConfig(
@@ -99,15 +99,21 @@ def run() -> None:
 
         if INJECT_ROGUES and cycle_num % 3 == 0:
             raw_packets.append(inject_rogue_packet())
-
+        if INJECT_ROGUES and cycle_num % 5 == 0:
+            raw_packets.append(inject_spoofed_packet(next(iter(swarm.keys_by_tag_id()))))
+            
         translated = gateway.ingest_batch(raw_packets)
         results    = publisher.publish_batch(translated)
         published  = sum(1 for r in results if r.success)
 
         logger.info(
-            "cycle %02d | polled=%d auth_ok=%d published=%d rogues=%d",
-            cycle_num, len(raw_packets), len(translated),
-            published, gateway.stats.rejected_unknown_tag,
+           "cycle %02d | polled=%d auth_ok=%d published=%d unknown_tag=%d bad_mac=%d",
+            cycle_num,
+            len(raw_packets),
+            len(translated),
+            published,
+            gateway.stats.rejected_unknown_tag,
+            gateway.stats.rejected_bad_auth,
         )
         time.sleep(POLL_INTERVAL_S)
 
@@ -141,7 +147,8 @@ def run() -> None:
     print("=" * 60)
     print(f"  Total packets seen      : {gw['total_seen']}")
     print(f"  Authenticated           : {gw['accepted']}")
-    print(f"  Rogue rejections        : {gw['rejected_unknown_tag']}")
+    print(f"  unknown-tag rejections  : {gw['rejected_unknown_tag']}")
+    print(f"  MAC-failure rejections  : {gw['rejected_bad_auth']}")
     print(f"  Published to IoT Core   : {pub['total_published']}")
     print(f"  Avg pipeline latency    : {pub['avg_latency_ms']} ms")
     print(f"  Throughput              : {metrics['throughput_msgs_per_s']} msg/s")
