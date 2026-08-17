@@ -11,7 +11,7 @@ Then run this:
     python3 scripts/run_pipeline_aws_stress.py
 
 Watch messages in AWS Console:
-    IoT Core → Test → Subscribe to aiot/telemetry/#
+    IoT Core -> Test -> Subscribe to aiot/telemetry/#
 """
 
 from __future__ import annotations
@@ -43,14 +43,14 @@ METRICS_OUT  = repo_root / "docs" / "evaluation" / "aiot_metrics_aws_stress.json
 
 ZONES        = ["greenhouse-A", "greenhouse-B", "greenhouse-C", "greenhouse-D"]
 TAGS_PER_ZONE = 25
-POLL_CYCLES  = 30
+POLL_CYCLES  = 75
 POLL_INTERVAL_S = 0.2
 INJECT_ROGUES = True
 SEED         = 42
 
 def load_config() -> dict:
     if not CONFIG_PATH.exists():
-        print(f"\n❌ Config not found at {CONFIG_PATH}")
+        print(f"\n[!] Config not found at {CONFIG_PATH}")
         print("   Run setup first: python3 infra/setup_aws_iot.py")
         sys.exit(1)
     return json.loads(CONFIG_PATH.read_text())
@@ -89,7 +89,7 @@ def run() -> None:
         logger.error("Could not connect to AWS IoT Core - check certs and endpoint")
         sys.exit(1)
 
-    logger.info("Connected to AWS IoT Core ✅")
+    logger.info("Connected to AWS IoT Core [OK]")
     logger.info("Running %s poll cycles...", POLL_CYCLES)
     run_start = time.time()
 
@@ -106,7 +106,7 @@ def run() -> None:
         published  = sum(1 for r in results if r.success)
 
         logger.info(
-            "cycle %02d | polled=%d auth_ok=%d published=%d rogues=%d",
+            "cycle %02d | polled=%d auth_ok=%d published=%d unknown_tag=%d bad_mac=%d",
             cycle_num, len(raw_packets), len(translated),
             published, gateway.stats.rejected_unknown_tag,
             gateway.stats.rejected_bad_auth,
@@ -152,7 +152,7 @@ def run() -> None:
     print(f"  Metrics saved to        : {METRICS_OUT}")
     print("=" * 60)
     print("\n  Check AWS Console:")
-    print("  IoT Core → Test → Subscribe to aiot/telemetry/#")
+    print("  IoT Core -> Test -> Subscribe to aiot/telemetry/#")
 
     logger.info("draining publish queue before disconnect...")
     time.sleep(20)

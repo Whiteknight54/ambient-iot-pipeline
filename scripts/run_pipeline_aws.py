@@ -11,7 +11,7 @@ Then run this:
     python3 scripts/run_pipeline_aws.py
 
 Watch messages in AWS Console:
-    IoT Core → Test → Subscribe to aiot/telemetry/#
+    IoT Core -> Test -> Subscribe to aiot/telemetry/#
 """
 
 from __future__ import annotations
@@ -90,7 +90,7 @@ def run() -> None:
         logger.error("Could not connect to AWS IoT Core - check certs and endpoint")
         sys.exit(1)
 
-    logger.info("Connected to AWS IoT Core ✅")
+    logger.info("Connected to AWS IoT Core [OK]")
     logger.info("Running %s poll cycles...", POLL_CYCLES)
     run_start = time.time()
 
