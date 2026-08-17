@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-08-15T00:46:28.610512+00:00",
+  "run_at": "2026-08-17T15:31:47.216434+00:00",
   "target": "aws_iot_core",
   "endpoint": "a2f7tdbrmlxjya-ats.iot.eu-west-2.amazonaws.com",
   "region": "eu-west-2",
@@ -11,24 +11,24 @@
       "greenhouse-D"
     ],
     "tags_per_zone": 25,
-    "poll_cycles": 30,
+    "poll_cycles": 75,
     "seed": 42
   },
   "gateway_stats": {
-    "accepted": 1230,
-    "rejected_unknown_tag": 10,
-    "rejected_bad_auth": 0,
+    "accepted": 3046,
+    "rejected_unknown_tag": 25,
+    "rejected_bad_auth": 15,
     "rejected_malformed": 0,
-    "total_seen": 1240
+    "total_seen": 3086
   },
   "publisher_stats": {
-    "total_published": 1230,
+    "total_published": 3046,
     "total_failed": 0,
-    "avg_latency_ms": 4.442,
-    "min_latency_ms": 0.0,
-    "max_latency_ms": 14.062,
-    "sample_count": 1230
+    "avg_latency_ms": 5.385,
+    "min_latency_ms": 0.553,
+    "max_latency_ms": 17.65,
+    "sample_count": 3046
   },
-  "run_duration_s": 6.24,
-  "throughput_msgs_per_s": 197.12
+  "run_duration_s": 15.83,
+  "throughput_msgs_per_s": 192.42
 }
