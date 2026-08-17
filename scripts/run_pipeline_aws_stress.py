@@ -43,7 +43,7 @@ METRICS_OUT  = repo_root / "docs" / "evaluation" / "aiot_metrics_aws_stress.json
 
 ZONES        = ["greenhouse-A", "greenhouse-B", "greenhouse-C", "greenhouse-D"]
 TAGS_PER_ZONE = 25
-POLL_CYCLES  = 30
+POLL_CYCLES  = 75
 POLL_INTERVAL_S = 0.2
 INJECT_ROGUES = True
 SEED         = 42

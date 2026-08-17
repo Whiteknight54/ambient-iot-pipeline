@@ -206,7 +206,7 @@ class EdgeGateway:
                 logger.warning("rejected packet: %s: %s", type(exc).__name__, exc)
         return out
 
-def inject_rogue_packet(zone: str = "zone-a") -> bytes:
+def inject_rogue_packet(zone: str = "greenhouse-A") -> bytes:
     """Build a packet impersonating a tag id the gateway has never seen --
     used in tests/evaluation to demonstrate unknown-tag rejection."""
     payload = {
@@ -219,7 +219,7 @@ def inject_rogue_packet(zone: str = "zone-a") -> bytes:
     payload["mac"] = compute_mac("not-the-real-key", payload)
     return json.dumps(payload, separators=(",", ":")).encode("utf-8")
 
-def inject_spoofed_packet(tag_id: str, zone: str = "zone-a") -> bytes:
+def inject_spoofed_packet(tag_id: str, zone: str = "greenhouse-A") -> bytes:
     """Build a packet using a *legitimate* tag id but the wrong key.
 
     Models the realistic adversary: tag identifiers travel unencrypted over
