@@ -136,7 +136,7 @@ class EdgeGateway:
         except (json.JSONDecodeError, UnicodeDecodeError) as exc:
             raise MalformedPacketError(str(exc)) from exc
 
-def _authenticate(self, tag_id: str, payload: dict) -> None:
+    def _authenticate(self, tag_id: str, payload: dict) -> None:
         """Two-stage rejection, counted separately for evaluation purposes.
 
         Stage 1 rejects tag IDs the gateway has never been provisioned for.

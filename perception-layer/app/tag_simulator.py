@@ -88,7 +88,8 @@ class AmbientTag:
             "ts": time.time(),
             **reading,
         }
-     def _canonical_body(self, payload: dict) -> bytes:
+    
+    def _canonical_body(self, payload: dict) -> bytes:
         """Deterministic byte serialisation of the payload, excluding the MAC.
 
         Both tag and gateway must derive identical bytes or every MAC check
