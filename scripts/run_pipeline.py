@@ -95,7 +95,7 @@ def run(cycles: int = POLL_CYCLES) -> dict:
     gateway = EdgeGateway(known_keys=swarm.keys_by_tag_id())
 
     # 4 -- MQTT publisher
-    publi    publisher = MQTTPublisher(
+    publisher = MQTTPublisher(
         broker_host=os.environ.get("AIOT_BROKER_HOST", "localhost"),
         broker_port=int(os.environ.get("AIOT_BROKER_PORT", "1883")),
     )
