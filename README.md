@@ -3,39 +3,25 @@
 **A Strategic Framework and Technical Artefact for Secure Big Data Ingestion of Ambient IoT in Cloud-Native Environments**
 
 MSc Information Technology - UFCF9Y-60-M CSCT Masters Project
-Student: ________ (______) | University of the West of England, Bristol
+Student: Oyinlayefa Mezeh (25053829) | University of the West of England, Bristol
 Supervisor: Dr. Odayne Haughton | Submission: 3 September 2026
 
 ---
 
 ## Research Objective
 
-Ambient IoT devices (battery-less, RF-energy-harvesting sensors) cannot execute
-standard IP-based communication or robust encryption protocols due to hardware
-constraints. This project designs and implements an end-to-end Big Data pipeline that
-bridges these constrained devices and enterprise cloud environments - demonstrating
-that intelligence shifted to the Edge can secure and process high-velocity backscatter
-data at scale without compromising data integrity.
+Ambient IoT devices - battery-less sensors powered by harvested RF energy - cannot execute standard IP-based communication or conventional cryptographic handshakes. The constraint is physical rather than incidental: a device drawing roughly one microwatt, with an envelope-detector receiver and no session state between transmissions, cannot participate in a TLS handshake at all.
 
-**Core research question:** Can a lightweight edge authentication framework, combined
-with a Big Data Lambda architecture separating real-time Hot paths from Cold batch
-processing, provide a secure and scalable ingestion pathway for battery-less ambient
-IoT sensors in a cloud-native environment?
+This project designs and implements an end-to-end Big Data pipeline that bridges such devices to enterprise cloud infrastructure, demonstrating that relocating trust to the first mains-powered hop secures high-velocity backscatter data at scale without requiring cryptographic capability on the device.
+
+**Core research question:** Can a lightweight edge authentication framework, combined with a Big Data Lambda architecture separating real-time hot paths from cold batch processing, provide a secure and scalable ingestion pathway for battery-less ambient IoT sensors in a cloud-native environment?
 
 **Project objectives:**
 
-1. Design and develop a technical artefact (high-fidelity greenhouse simulation,
-   calibrated against publicly available greenhouse telemetry data) that translates raw Ambient IoT backscatter signals into secure MQTT
-   data streams.
-2. Implement a lightweight authentication and security framework at the Edge layer -
-   including VLAN segmentation and firewalling - to protect data integrity for devices
-   incapable of traditional SSL/TLS handshakes.
-3. Architect a Big Data Lambda infrastructure that manages high-velocity data ingestion,
-   separating real-time Hot paths for immediate insights from Cold batch processing for
-   long-term trend analysis.
-4. Evaluate the strategic value of Ambient IoT through a Business Intelligence dashboard,
-   measuring improvements in carbon footprint and operational cost compared to
-   traditional battery-powered IoT.
+1. Design and develop a technical artefact - a high-fidelity simulation calibrated against publicly available greenhouse telemetry - that translates raw ambient IoT backscatter signals into secure MQTT data streams.
+2. Implement a lightweight authentication and security framework at the edge layer, combining HMAC-SHA256 payload authentication with VLAN segmentation and default-deny firewalling, to protect data integrity for devices incapable of traditional SSL/TLS handshakes.
+3. Architect a Big Data Lambda infrastructure managing high-velocity ingestion, separating real-time hot paths for immediate insight from cold batch processing for long-term trend analysis.
+4. Evaluate the strategic value of ambient IoT through a Business Intelligence dashboard, measuring operational and sustainability indicators against traditional battery-powered IoT.
 
 ---
 
@@ -45,10 +31,10 @@ IoT sensors in a cloud-native environment?
 ┌─────────────────────┐     Raw backscatter       ┌──────────────────────────┐
 │   Perception Layer  │ ───────────────────────►  │    Edge Gateway          │
 │  Python tag sim     │     (no IP, no TLS)       │    MikroTik hEX S        │
-│  Wiliot Gen3 model  │                           │    PSK auth + MQTT xlt   │
+│  HMAC-SHA256 on-tag │     + HMAC tag            │    MAC verify + MQTT xlt │
 └─────────────────────┘                           │    VLAN + firewall rules │
                                                   └────────────┬─────────────┘
-                                                               │ Secure MQTT
+                                                               │ MQTT/TLS :8883
                                                                ▼
                                                   ┌──────────────────────────┐
                                                   │    Cloud Ingestion       │
@@ -59,12 +45,146 @@ IoT sensors in a cloud-native environment?
                                                                ▼
                                                   ┌──────────────────────────┐
                                                   │    BI Dashboard          │
-                                                  │    Tableau              │
-                                                  │    Star Schema model     │
+                                                  │    Tableau               │
+                                                  │    Star schema model     │
                                                   └──────────────────────────┘
 ```
 
 Full diagrams: [`docs/architecture/`](docs/architecture/)
+
+---
+
+## Security Model
+
+Authentication operates at two layers, addressing distinct threats.
+
+**Application layer - identity and integrity.** Each tag holds a pre-shared key and attaches an HMAC-SHA256 tag computed over a canonical serialisation of its payload. The gateway recomputes the MAC from its own copy of the key and compares using `hmac.compare_digest`. Rejection is two-stage and counted separately:
+
+| Stage | Rejects | Counter |
+|---|---|---|
+| 1 | Tag identifiers never provisioned | `rejected_unknown_tag` |
+| 2 | Valid identifier, MAC does not verify | `rejected_bad_auth` |
+
+Stage 2 addresses the realistic adversary. Tag identifiers travel unencrypted over the air and can be harvested by any listener, so an allowlist alone would admit a spoofed transmission. It also detects payloads altered in transit. The MAC is stripped at the gateway and never published to the cloud.
+
+Three adversary injectors support evaluation: `inject_rogue_packet` (unknown identifier), `inject_spoofed_packet` (harvested identifier, wrong key), and `inject_tampered_packet` (authentic packet, altered reading).
+
+**Network layer - destination restriction.** The gateway runs behind a MikroTik hEX S (RouterOS 7.23.3) configured from `edge-gateway/configs/mikrotik_config.rsc`: VLAN 10 for management, VLAN 20 for the IoT segment, and a ten-rule firewall terminating in default-deny on both input and forward chains. Egress from the IoT segment is permitted only to TCP 8883, and only to a dynamically resolved address list containing the account-specific AWS IoT Core endpoint. Inter-VLAN traffic is blocked bidirectionally.
+
+The two layers are complementary: the application layer rejects rogue *sources*, the network layer rejects rogue *destinations*.
+
+---
+
+## Quick Start
+
+Works identically on Windows, macOS and Linux.
+
+### 1. Install Python dependencies
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Requires Python 3.10 or later.
+
+### 2. Run the tests
+
+```bash
+python -m pytest -v
+```
+
+Expect **21 passed**.
+
+| Layer | Tests | Coverage |
+|---|---|---|
+| `perception-layer/tests` | 2 | Tag simulation, energy-harvesting model |
+| `edge-gateway/tests` | 6 | Acceptance, unknown-tag rejection, mixed batch, spoofed tag, tampered payload, MAC non-leakage |
+| `cloud/tests` | 13 | Hot/cold path classification and aggregation |
+
+The tests require no broker, no AWS credentials and no network access. This is the fastest way to verify the artefact works.
+
+### 3. Run the local pipeline
+
+Requires an MQTT broker on localhost:1883.
+
+| Platform | Install |
+|---|---|
+| macOS | `brew install mosquitto` |
+| Ubuntu/Debian | `sudo apt install mosquitto mosquitto-clients` |
+| Windows | Download from [mosquitto.org/download](https://mosquitto.org/download/). The installer does **not** add Mosquitto to PATH - add `C:\Program Files\mosquitto` manually, or start the broker separately before running the pipeline. |
+
+Then:
+
+```bash
+python scripts/run_pipeline.py
+```
+
+Metrics are written to `docs/evaluation/aiot_metrics.json`.
+
+To watch messages live in a second terminal:
+
+```bash
+mosquitto_sub -h localhost -t "aiot/telemetry/#" -v
+```
+
+Broker host and port can be overridden with the `AIOT_BROKER_HOST` and `AIOT_BROKER_PORT` environment variables.
+
+### 4. Regenerate the BI dataset
+
+```bash
+python bi/generate_dataset.py
+```
+
+---
+
+## Results
+
+All figures below are reproducible from the committed metrics files in [`docs/evaluation/`](docs/evaluation/). The simulation uses a fixed seed, so authentication outcomes are deterministic - repeated runs return identical packet counts, while latency varies with the host and network.
+
+### Authentication
+
+| | Baseline | Stress |
+|---|---|---|
+| Configuration | 2 zones × 5 tags × 10 cycles | 4 zones × 25 tags × 75 cycles |
+| Total packets seen | 42 | 3,086 |
+| Authenticated and accepted | 37 | 3,046 |
+| Unknown-tag rejections | 3 | 25 |
+| MAC-failure rejections | 2 | 15 |
+| Rejection rate | 100% of injected adversaries | 100% of injected adversaries |
+
+Identical gateway statistics were produced by both the local broker run and the AWS run at each scale, confirming that authentication behaviour is independent of transport.
+
+### Throughput and latency
+
+| Run | Throughput | Mean publish latency | Duration |
+|---|---|---|---|
+| Local baseline | 7.23 msg/s | 5.804 ms | 5.12 s |
+| AWS baseline | 7.34 msg/s | 1.583 ms | 5.04 s |
+| Local stress | 192.54 msg/s | 6.596 ms | 15.82 s |
+| AWS stress | 192.42 msg/s | 5.385 ms | 15.83 s |
+
+Reported throughput measures the rate at which messages were queued by the client library, not the rate of delivery. AWS IoT Core enforces a non-adjustable quota of 100 publish requests per second per connection, so the offered rate exceeded what a single connection could accept.
+
+### Cloud delivery (AWS stress run)
+
+Verified independently of publisher output:
+
+| Measure | Value |
+|---|---|
+| Messages published | 3,046 |
+| Rows persisted to DynamoDB | 3,020 (99.1%) |
+| Peak DynamoDB throttle events | 719 |
+| Lambda errors reported | 0 |
+
+Under a sustained burst of approximately 192 msg/s the on-demand DynamoDB table's write capacity was exceeded, producing 719 throttle events at peak. SDK retry logic absorbed these and delivery completed, but with write latency extended several minutes beyond the publishing window. CloudWatch reported 100% Lambda success throughout, because the hot-path handler catches all exceptions and returns a 500 status in a normal return - a status the direct IoT Core invocation never inspects. Throttling was therefore invisible in the function's own error metrics and detectable only in the table's `ThrottledRequests` metric. This is documented as an observability limitation in the evaluation chapter.
+
+### Hardware deployment
+
+The RouterOS configuration was deployed to physical hardware and the full pipeline executed through the segmented network. Firewall counters confirmed enforcement in both directions: unauthorised egress and inter-VLAN traffic were discarded at the gateway, while the sanctioned MQTT/TLS path carried the full telemetry load.
+
+Note on counter interpretation: the rule permitting MQTT egress increments only on the connection-initiating packet, after which the preceding `established,related` rule admits the remainder of the session. Policy is evaluated once per connection by design, not once per packet.
+
+Evidence: [`docs/screenshots/`](docs/screenshots/)
 
 ---
 
@@ -73,194 +193,79 @@ Full diagrams: [`docs/architecture/`](docs/architecture/)
 ```
 ambient-iot-pipeline/
 │
-├── perception-layer/          # Stage 1: Simulated battery-less tag engine
-│   ├── app/tag_simulator.py   # Probabilistic energy-harvesting model
-│   ├── config/config.json     # Zone configuration (multi - zone Greenhouse)
+├── perception-layer/          # Stage 1: simulated battery-less tag engine
+│   ├── app/tag_simulator.py   # Energy-harvesting model + on-tag HMAC
+│   ├── config/config.json     # Zone configuration
 │   └── tests/                 # 2 unit tests
 │
-├── edge-gateway/              # Stage 2: MikroTik auth + protocol translation
-│   ├── app/auth_bridge.py     # PSK authentication, rogue signal rejection
+├── edge-gateway/              # Stage 2: authentication + protocol translation
+│   ├── app/auth_bridge.py     # Two-stage rejection, adversary injectors
 │   ├── app/mqtt_publisher.py  # MQTT publish with latency instrumentation
-│   ├── configs/               # RouterOS export (.rsc) - VLAN + firewall rules
-│   └── tests/                 # 3 integration tests
+│   ├── configs/               # RouterOS config (.rsc): VLAN + firewall
+│   └── tests/                 # 6 integration tests
 │
-├── cloud/                     # Stage 3: AWS serverless Big Data ingestion
-│   ├── lambdas/hot-path/      # Real-time classification + alerting (hot path)
-│   ├── lambdas/cold-path/     # Batch aggregation → CSV (cold path)
-│   ├── iot-core/rules.json    # IoT Core message routing rules
+├── cloud/                     # Stage 3: AWS serverless ingestion
+│   ├── lambdas/hot-path/      # Real-time classification + alerting
+│   ├── lambdas/cold-path/     # Batch aggregation → CSV
+│   ├── iot-core/rules.json    # IoT Core message routing
 │   └── tests/                 # 13 Lambda unit tests
 │
 ├── bi/                        # Stage 4: Business Intelligence
-│   ├── generate_dataset.py    # 7-day simulation dataset generator
-│   ├── dataset_mock.csv       # 20,160 row flat dataset
+│   ├── generate_dataset.py    # 7-day dataset generator
 │   ├── star_schema/           # Dimensional model for Tableau
-│   │   ├── Fact_Telemetry.csv
-│   │   ├── Fact_Gateway_Metrics.csv
-│   │   ├── Dim_Zone.csv
-│   │   └── Dim_Tag.csv
 │   └── Book1.twb
 │
 ├── docs/
 │   ├── architecture/          # SVG pipeline, sequence, deployment diagrams
-│   ├── ethics/                # UWE ethics approval
-│   ├── evaluation/            # aiot_metrics.json (pipeline run evidence)
-│   └── meetings/              # Supervisor meeting log
+│   ├── ethics/                # Ethics approval
+│   ├── evaluation/            # Metrics JSON from every run
+│   ├── meetings/              # Supervisor meeting log
+│   └── screenshots/           # Deployment and evaluation evidence
 │
 ├── scripts/
-│   └── run_pipeline.py        # End-to-end local pipeline runner
+│   ├── run_pipeline.py            # Local broker, baseline config
+│   ├── run_pipeline_aws.py        # AWS IoT Core, baseline config
+│   └── run_pipeline_aws_stress.py # AWS IoT Core, stress config
 │
-├── infra/terraform/           # AWS infrastructure as code (IaC)
-└── pytest.ini                 # Test runner config (18 tests across 3 layers)
-```
-
----
-
-## Pipeline Test Results
-
-18/18 tests passing across all pipeline stages:
-
-```
-perception-layer/tests   2 passed   Tag simulation and energy-harvesting model
-edge-gateway/tests       3 passed   Auth, rogue rejection, mixed batch handling
-cloud/tests             13 passed   Hot/cold path classification and aggregation
-```
-
-Run from repo root:
-```bash
-pip install paho-mqtt
-python3 -m pytest -v
-```
-
----
-
-## Evaluation Metrics (Baseline Run)
-
-Captured from `scripts/run_pipeline.py` - 10 poll cycles, 10 tags across 2 zones:
-
-| Metric | Value |
-|---|---|
-| Total packets seen | 40 |
-| Authenticated and accepted | 37 (92.5%) |
-| Rogue signals rejected | 3 (100% catch rate) |
-| Packet loss (energy-harvesting gate) | 60.1% - expected, models real backscatter |
-| Average pipeline latency | 0.381 ms |
-| Min / Max latency | 0.107 ms / 0.821 ms |
-| Throughput | 7.31 msg/s |
-| Run duration | 5.06s |
-
-Full metrics: [`docs/evaluation/aiot_metrics.json`](docs/evaluation/aiot_metrics.json)
-
----
-
-## BI Dataset Summary (7-Day Simulation)
-
-Generated by `bi/generate_dataset.py` - models a multi-zone Greenhouse deployment:
-
-| Metric | Value |
-|---|---|
-| Total readings | 20,160 |
-| Packets transmitted | ~8,076 (39.9% - energy-harvesting gate) |
-| Packet loss rate | 60.1% - consistent with backscatter device model |
-| Alert events | ~785 (9.8% alert rate) |
-| Critical events | ~38 (Day 6 heat anomaly crosses 35°C threshold) |
-| CO₂ saved vs battery-powered | 3,861g over 7 days |
-
-Carbon savings methodology: coefficients derived from the LCA model of
-Maistriaux et al. (2022), which reports ~1-10 kgCO2eq/year per
-battery-powered environmental-monitoring node (production 3.65 kgCO2eq
-plus battery-replacement maintenance). Amortised over hourly readings
-(~8,760/year) this gives ~0.1-1 g CO2eq per reading; 0.50 g is adopted
-as a mid-range coefficient vs a 0.02 g project assumption for the
-ambient tag's shared gateway/cloud ingestion overhead.
-
----
-
-## Local Setup
-
-### Prerequisites
-- Python 3.10+
-- Mosquitto MQTT broker
-
-```bash
-# Mac
-brew install mosquitto
-
-# Ubuntu / Debian
-sudo apt install mosquitto mosquitto-clients
-```
-
-### Install dependencies
-```bash
-python -m pip install -r requirements.txt
-```
-
-Windows bootstrap:
-```powershell
-Set-ExecutionPolicy -Scope Process Bypass -Force
-.\scripts\bootstrap.ps1
-```
-
-If `python` resolves to the Microsoft Store alias on your machine, pass an explicit interpreter path:
-```powershell
-.\scripts\bootstrap.ps1 -Python "C:\Users\USER\AppData\Local\Programs\Python\Python312\python.exe"
-```
-
-### Run the full pipeline
-```bash
-# Terminal 1 - watch live MQTT messages
-mosquitto_sub -h localhost -t "aiot/telemetry/#" -v
-
-# Terminal 2 - run the pipeline
-python3 scripts/run_pipeline.py
-```
-
-### Run tests
-```bash
-python3 -m pytest -v
-```
-
-### Generate BI dataset
-```bash
-python3 bi/generate_dataset.py
+├── infra/terraform/           # AWS infrastructure as code
+└── pytest.ini                 # Test runner config
 ```
 
 ---
 
 ## Cloud Deployment (AWS)
 
-> Local pipeline must pass all 18 tests before cloud deployment.
-> This is the Staged Deployment Strategy documented in the project methodology.
+The local pipeline should pass all 21 tests before cloud deployment - a staged deployment strategy documented in the project methodology.
 
-### Prerequisites
-- AWS account with IoT Core, Lambda, DynamoDB, S3 access
-- AWS CLI configured: `aws configure`
+**Prerequisites:** an AWS account with IoT Core, Lambda, DynamoDB and S3 access, and `aws configure` completed.
 
-### IoT Core Rule (connects gateway MQTT → hot-path Lambda)
+**IoT Core rule** connecting gateway MQTT to the hot-path Lambda:
+
 ```sql
 SELECT * FROM 'aiot/telemetry/#'
 ```
-Action: Lambda → `hot-path/index.py`
 
-### Environment variables (hot path Lambda)
+**Hot-path Lambda environment:**
+
 ```
 DYNAMODB_TABLE=aiot-telemetry
 AWS_EXECUTION_ENV=AWS_Lambda_python3.12
 ```
 
-### Environment variables (cold path Lambda)
+**Cold-path Lambda environment:**
+
 ```
 S3_BUCKET=aiot-cold-storage
 AWS_EXECUTION_ENV=AWS_Lambda_python3.12
 ```
 
-Terraform IaC coming in `infra/terraform/` - provisions IoT Core,
-Lambda functions, DynamoDB table, and S3 bucket in one apply.
+Device certificates are not committed. Place `device.pem.crt`, `private.pem.key` and `AmazonRootCA1.pem` in `infra/certs/` and set the endpoint in `aws_config.json`.
 
 ---
 
 ## Tableau Dashboard
 
-Import the Star Schema CSVs from `bi/star_schema/` in this order:
+Import the star schema CSVs from `bi/star_schema/` in this order:
 
 1. `Dim_Zone.csv`
 2. `Dim_Tag.csv`
@@ -271,7 +276,8 @@ Import the Star Schema CSVs from `bi/star_schema/` in this order:
 - `Fact_Telemetry[zone]` → `Dim_Zone[zone_id]`
 - `Fact_Telemetry[tag_id]` → `Dim_Tag[tag_id]`
 
-**Tableau Calculated Fields:**
+**Calculated fields:**
+
 ```
 // Avg_Ingestion_Latency
 AVG([Pipeline Latency Ms])
@@ -279,35 +285,40 @@ AVG([Pipeline Latency Ms])
 // Alert_Rate_Pct
 SUM(IF [Alert] THEN 1 ELSE 0 END) / COUNT([Reading Id]) * 100
 
-// Rogue_Rejection_Rate_Pct
+// Unknown_Tag_Rejection_Rate_Pct
 SUM([Rejected Unknown Tag]) / SUM([Total Seen]) * 100
+
+// MAC_Failure_Rejection_Rate_Pct
+SUM([Rejected Bad Auth]) / SUM([Total Seen]) * 100
 
 // CO2_Saved_g
 MAX([Battery Co2 Saved G])
 ```
 
 **Dashboard pages:**
-- Page 1 - Strategic Health: active tags, zone temperature averages, alert KPIs
-- Page 2 - Infrastructure Performance: latency over time, throughput, packet loss rate
-- Page 3 - Security Posture: classification donut, rogue rejection rate
+- Strategic Health - active tags, zone temperature averages, alert KPIs
+- Infrastructure Performance - latency over time, throughput, packet loss rate
+- Security Posture - classification breakdown, rejection rates by category
 
 ---
 
 ## Key References
 
-- 3GPP (2025) Release 19 Technical Specifications: Ambient IoT for 5G-Advanced
-- Gartner (2024) Hype Cycle for Emerging Technologies
-- ISO/IEC (2022) ISO/IEC 27001:2022 - Information Security Management Systems
-- NIST SP 800-160 (2022) Engineering Trustworthy Secure Systems
-- AWS (2024) Lambda Architecture Patterns for Big Data
-- Microsoft Azure (2024) Cloud-Native Design Patterns: Lambda Architecture
-- Maistriaux, P., Pirson, T., Schramme, M., Louveaux, J. and Bol, D. (2022) Modeling the Carbon Footprint of Battery-Powered IoT Sensor Nodes for Environmental-Monitoring Applications. IoT '22, ACM, pp. 9-16. doi:10.1145/3567445.3567448
-- Rehman et al. (2025) Zero-Trust Architecture for Cyber-Physical Systems
-- Lakshminarayana et al. (2024) Securing IoT from an MQTT Protocol Perspective
-- Hussein & Nhlabatsi (2022) MQTT-Based Exploitation of IoT Security Vulnerabilities
-- Wiliot (2024) Ambient IoT: Benefits, Use Cases and Future Trends
+- 3GPP (2025) *Release 19: Ambient IoT for 5G-Advanced*
+- Alsaedi, A., Moustafa, N., Tari, Z., Mahmood, A. and Anwar, A. (2020) 'TON_IoT telemetry dataset', *IEEE Access*, 8, pp. 165130-165150. doi:10.1109/ACCESS.2020.3022862
+- An, Y., Park, H. and Lee, W. (2023) 'Signal strength balanced scheduling for secure ambient backscatter networks', *ICOIN 2023*, pp. 56-61. doi:10.1109/ICOIN56518.2023.10049059
+- Hussein, N. and Nhlabatsi, A. (2022) 'Living in the dark: MQTT-based exploitation of IoT security vulnerabilities in ZigBee networks', *IoT*, 3(4)
+- ISO/IEC (2022) *ISO/IEC 27001:2022 - Information Security Management Systems*
+- Kaplan, A. (2024) *Signal processing aspects of bistatic backscatter communication*. Licentiate thesis. Linköping University. doi:10.3384/9789180755955
+- Lakshminarayana, S., Praseed, A. and Thilagam, P.S. (2024) 'Securing the IoT application layer from an MQTT protocol perspective', *IEEE Communications Surveys & Tutorials*, 26(4)
+- Maistriaux, P., Pirson, T., Schramme, M., Louveaux, J. and Bol, D. (2022) 'Modeling the carbon footprint of battery-powered IoT sensor nodes for environmental-monitoring applications', *IoT '22*, ACM. doi:10.1145/3567445.3567448
+- Muppa, N.R. (2025) 'Event-driven architectures in cloud-native systems', *WJARR*
+- NIST (2022) *SP 800-160: Engineering Trustworthy Secure Systems*
+- Rehman et al. (2025) 'Immersive embedded consumer model leveraging AI with zero-trust architecture for cyber-physical systems', *IEEE Transactions on Consumer Electronics*. doi:10.1109/TCE.2025.3554095
+- Simanjuntak, R. and Surantha, N. (2022) 'Time-series database design for IoT monitoring', *Journal of Big Data*
+- Song et al. (2026) 'Dynamic multi-channel random access for 6G-enabled ambient IoT'
 
-Full reference list in dissertation report.
+Full reference list in the dissertation report.
 
 ---
 
@@ -315,11 +326,12 @@ Full reference list in dissertation report.
 
 | Stage | Component | Status |
 |---|---|---|
-| 1 | Perception layer (tag simulator) | ✅ Complete |
-| 2 | Edge gateway (PSK auth + VLAN + MQTT) | ✅ Complete |
-| 3 | Cloud Big Data ingestion (hot/cold Lambda) | ✅ Complete |
-| 4 | BI dashboard (Star Schema + Tableau calculated fields) | ✅ Complete |
-| - | 18/18 tests passing | ✅ |
-| - | Evaluation metrics captured | ✅ |
-| - | AWS deployment (IoT Core wiring) | ✅ Complete |
-| - | Dissertation report | 🔲 In progress |
+| 1 | Perception layer with on-tag HMAC | Complete |
+| 2 | Edge gateway: two-stage authentication | Complete |
+| 2 | MikroTik hEX S: VLAN + firewall, deployed to hardware | Complete |
+| 3 | AWS ingestion: IoT Core, hot/cold Lambda, DynamoDB, S3 | Complete |
+| 4 | BI dashboard: star schema + Tableau | Complete |
+| - | 21/21 tests passing | Complete |
+| - | Evaluation metrics captured at two scales | Complete |
+| - | Terraform IaC | Not implemented - see future work |
+| - | Dissertation report | In progress |

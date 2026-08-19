@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import subprocess
 import sys
 import time
@@ -57,7 +58,7 @@ TAGS_PER_ZONE = 5
 POLL_CYCLES = 10
 POLL_INTERVAL_S = 0.5
 INJECT_ROGUES = True
-METRICS_OUTPUT = Path("/tmp/aiot_metrics.json")
+METRICS_OUTPUT = Path(__file__).resolve().parent.parent / "docs" / "evaluation" / "aiot_metrics.json"
 SEED = 42
 
 
@@ -94,7 +95,10 @@ def run(cycles: int = POLL_CYCLES) -> dict:
     gateway = EdgeGateway(known_keys=swarm.keys_by_tag_id())
 
     # 4 -- MQTT publisher
-    publisher = MQTTPublisher(broker_host="localhost", broker_port=1883)
+    publi    publisher = MQTTPublisher(
+        broker_host=os.environ.get("AIOT_BROKER_HOST", "localhost"),
+        broker_port=int(os.environ.get("AIOT_BROKER_PORT", "1883")),
+    )
     connected = publisher.connect()
     if not connected:
         logger.error("could not connect to MQTT broker -- is Mosquitto running?")
