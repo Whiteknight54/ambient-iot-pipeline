@@ -310,7 +310,7 @@ def generate() -> tuple[list[dict], dict[str, list]]:
 
 def write_csv(path: Path, headers: list, rows: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="") as f:
+    with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
         writer.writerows(rows)
