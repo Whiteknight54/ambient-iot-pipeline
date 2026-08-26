@@ -1,3 +1,20 @@
 {
-  "rules": []
+  "rules": [
+    {
+      "ruleName": "aiot_hot_path_rule",
+      "topicRulePayload": {
+        "sql": "SELECT * FROM 'aiot/telemetry/#'",
+        "description": "Route ambient IoT telemetry to hot-path Lambda",
+        "actions": [
+          {
+            "lambda": {
+              "functionArn": "arn:aws:lambda:eu-west-2:<ACCOUNT_ID>:function:aiot-hot-path"
+            }
+          }
+        ],
+        "ruleDisabled": false,
+        "awsIotSqlVersion": "2016-03-23"
+      }
+    }
+  ]
 }

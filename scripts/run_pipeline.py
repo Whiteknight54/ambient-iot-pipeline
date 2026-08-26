@@ -52,7 +52,7 @@ logger = logging.getLogger("pipeline")
 
 # Baseline config (see docs/evaluation/aiot_metrics.json)
 # Stress config used for aiot_metrics_stress.json:
-#   4 zones, TAGS_PER_ZONE=25, POLL_CYCLES=30, POLL_INTERVAL_S=0.2
+#   4 zones, TAGS_PER_ZONE=25, POLL_CYCLES=75, POLL_INTERVAL_S=0.2
 ZONES = ["greenhouse-A", "greenhouse-B"]
 TAGS_PER_ZONE = 5
 POLL_CYCLES = 10
