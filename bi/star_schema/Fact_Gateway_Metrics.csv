@@ -1,2 +1,2 @@
-run_id,run_at,zone_count,tags_per_zone,poll_cycles,total_seen,accepted,rejected_unknown_tag,rejected_bad_auth,rejected_malformed,total_published,avg_latency_ms,min_latency_ms,max_latency_ms,throughput_msgs_per_s,run_duration_s
-1,2026-08-17T10:04:00.081579+00:00,2,5,10,42,37,3,2,0,37,5.804,0.0,44.157,7.23,5.12
+run_id,run_at,zone_count,tags_per_zone,poll_cycles,total_seen,accepted,rejected_unknown_tag,rejected_bad_auth,rejected_malformed,rogues_injected,spoofed_injected,total_published,avg_latency_ms,min_latency_ms,max_latency_ms,throughput_msgs_per_s,run_duration_s
+1,2026-08-17T10:04:00.081579+00:00,2,5,10,42,37,3,2,0,3,2,37,5.804,0.0,44.157,7.23,5.12
