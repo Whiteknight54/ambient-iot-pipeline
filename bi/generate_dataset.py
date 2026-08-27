@@ -102,9 +102,9 @@ FACT_GATEWAY_HEADERS = [
     "run_id", "run_at", "zone_count", "tags_per_zone",
     "poll_cycles", "total_seen", "accepted",
     "rejected_unknown_tag", "rejected_bad_auth",
-    "rejected_malformed", "total_published",
-    "avg_latency_ms", "min_latency_ms", "max_latency_ms",
-    "throughput_msgs_per_s", "run_duration_s",
+    "rejected_malformed", "rogues_injected","spoofed_injected",
+    "total_published", "avg_latency_ms", "min_latency_ms",
+    "max_latency_ms", "throughput_msgs_per_s", "run_duration_s",
 ]
 
 DIM_ZONE_HEADERS = [
@@ -282,6 +282,8 @@ def generate() -> tuple[list[dict], dict[str, list]]:
             "rejected_unknown_tag": gw.get("rejected_unknown_tag", 0),
             "rejected_bad_auth":    gw.get("rejected_bad_auth", 0),
             "rejected_malformed":   gw.get("rejected_malformed", 0),
+            "rogues_injected":      m.get("rogues_injected", 3),
+            "spoofed_injected":     m.get("spoofed_injected", 2),
             "total_published":      pub.get("total_published", 0),
             "avg_latency_ms":       pub.get("avg_latency_ms", 0),
             "min_latency_ms":       pub.get("min_latency_ms", 0),
@@ -293,8 +295,9 @@ def generate() -> tuple[list[dict], dict[str, list]]:
         fact_gateway = [{
             "run_id": 1, "run_at": datetime.now(timezone.utc).isoformat(),
             "zone_count": 2, "tags_per_zone": 5, "poll_cycles": 10,
-            "total_seen": 40, "accepted": 37, "rejected_unknown_tag": 3,
-            "rejected_bad_auth": 0, "rejected_malformed": 0,
+            "total_seen": 42, "accepted": 37, "rejected_unknown_tag": 3,
+            "rejected_bad_auth": 2, "rejected_malformed": 0,
+            "rogues_injected": 3, "spoofed_injected": 2,
             "total_published": 37, "avg_latency_ms": 0.381,
             "min_latency_ms": 0.107, "max_latency_ms": 0.821,
             "throughput_msgs_per_s": 7.31, "run_duration_s": 5.06,

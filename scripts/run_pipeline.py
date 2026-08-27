@@ -108,6 +108,8 @@ def run(cycles: int = POLL_CYCLES) -> dict:
 
     logger.info("pipeline ready -- running %s poll cycles", cycles)
     run_start = time.time()
+    rogues_injected = 0
+    spoofed_injected = 0
 
     # 5 -- Main polling loop
     for cycle_num in range(1, cycles + 1):
@@ -115,8 +117,10 @@ def run(cycles: int = POLL_CYCLES) -> dict:
 
         if INJECT_ROGUES and cycle_num % 3 == 0:
             raw_packets.append(inject_rogue_packet())
+            rogues_injected += 1
         if INJECT_ROGUES and cycle_num % 5 == 0:
             raw_packets.append(inject_spoofed_packet(next(iter(swarm.keys_by_tag_id()))))
+            spoofed_injected += 1
         translated = gateway.ingest_batch(raw_packets)
         results = publisher.publish_batch(translated)
 
@@ -146,6 +150,8 @@ def run(cycles: int = POLL_CYCLES) -> dict:
         },
         "gateway_stats": gateway.stats.as_dict(),
         "publisher_stats": publisher.metrics.as_dict(),
+        "rogues_injected": rogues_injected,
+        "spoofed_injected": spoofed_injected,
         "run_duration_s": run_duration_s,
         "throughput_msgs_per_s": round(
             publisher.metrics.total_published / run_duration_s, 2
