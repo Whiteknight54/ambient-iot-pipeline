@@ -227,7 +227,6 @@ ambient-iot-pipeline/
 │   ├── run_pipeline_aws.py        # AWS IoT Core, baseline config
 │   └── run_pipeline_aws_stress.py # AWS IoT Core, stress config
 │
-├── infra/terraform/           # AWS infrastructure as code
 └── pytest.ini                 # Test runner config
 ```
 
