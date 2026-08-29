@@ -1,0 +1,54 @@
+{
+  "tikrit_calibration": {
+    "source": "Abdullah, W.D. and Lifta, M.I. (2024) IoT Agriculture 2024 [Dataset]. Kaggle.",
+    "records": 37922,
+    "date_span": [
+      "2023-11-27 06:26:00",
+      "2024-03-30 05:24:00"
+    ],
+    "sampling_interval": "0 days 00:05:00",
+    "mean_temperature_c": 18.76,
+    "sd_temperature_c": 7.14,
+    "min_temperature_c": 3.0,
+    "max_temperature_c": 41.0,
+    "mean_daily_swing_c": 18.47,
+    "sine_equivalent_amplitude_c": 8.72,
+    "peak_hour": 5,
+    "trough_hour": 21,
+    "pct_within_simulator_band": 24.9,
+    "simulator_base_temps_c": [
+      20.0,
+      22.0
+    ],
+    "simulator_amplitude_c": 3.5
+  },
+  "ton_iot_threat_model": {
+    "source": "Alsaedi et al. (2020) TON_IoT telemetry dataset. UNSW Canberra.",
+    "records": 39260,
+    "label_counts": {
+      "1": 24260,
+      "0": 15000
+    },
+    "attack_class_counts": {
+      "normal": 15000,
+      "ddos": 5000,
+      "backdoor": 5000,
+      "injection": 5000,
+      "password": 5000,
+      "ransomware": 2865,
+      "xss": 866,
+      "scanning": 529
+    },
+    "normal_mean_c": 35.11,
+    "attack_mean_c": 35.33,
+    "injection_mean_c": 36.31,
+    "normal_range_c": [
+      20.53,
+      49.98
+    ],
+    "injection_range_c": [
+      20.59,
+      49.45
+    ]
+  }
+}
