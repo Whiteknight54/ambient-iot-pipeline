@@ -1,34 +1,32 @@
 {
+  "dissertation_title": "A Strategic Framework and Technical Artefact for Secure Big Data Ingestion of Ambient IoT in Cloud-Native Environments",
   "tikrit_calibration": {
-    "source": "Abdullah, W.D. and Lifta, M.I. (2024) IoT Agriculture 2024 [Dataset]. Kaggle.",
+    "source": "Abdullah, W.D. and Lifta, M.I. (2024) IoT Agriculture 2024 [Dataset].",
     "records": 37922,
+    "mean_temperature_c": 18.76,
+    "sd_temperature_c": 7.14,
+    "temperature_min_c": 3.0,
+    "temperature_max_c": 41.0,
+    "sine_equivalent_amplitude_c": 8.72,
+    "simulator_amplitude_c": 3.5,
+    "pct_within_simulator_band": 24.9,
+    "pct_below_simulator_band": 53.8,
+    "pct_above_simulator_band": 21.2,
     "date_span": [
       "2023-11-27 06:26:00",
       "2024-03-30 05:24:00"
     ],
     "sampling_interval": "0 days 00:05:00",
-    "mean_temperature_c": 18.76,
-    "sd_temperature_c": 7.14,
-    "min_temperature_c": 3.0,
-    "max_temperature_c": 41.0,
     "mean_daily_swing_c": 18.47,
-    "sine_equivalent_amplitude_c": 8.72,
     "peak_hour": 5,
-    "trough_hour": 21,
-    "pct_within_simulator_band": 24.9,
-    "simulator_base_temps_c": [
-      20.0,
-      22.0
-    ],
-    "simulator_amplitude_c": 3.5
+    "trough_hour": 21
   },
   "ton_iot_threat_model": {
-    "source": "Alsaedi et al. (2020) TON_IoT telemetry dataset. UNSW Canberra.",
+    "source": "Alsaedi et al. (2020) ToN_IoT telemetry dataset.",
     "records": 39260,
-    "label_counts": {
-      "1": 24260,
-      "0": 15000
-    },
+    "normal_mean_c": 35.11,
+    "attack_mean_c": 35.33,
+    "injection_mean_c": 36.31,
     "attack_class_counts": {
       "normal": 15000,
       "ddos": 5000,
@@ -39,9 +37,6 @@
       "xss": 866,
       "scanning": 529
     },
-    "normal_mean_c": 35.11,
-    "attack_mean_c": 35.33,
-    "injection_mean_c": 36.31,
     "normal_range_c": [
       20.53,
       49.98
@@ -49,6 +44,10 @@
     "injection_range_c": [
       20.59,
       49.45
-    ]
+    ],
+    "normal_vs_attack_cohens_d": 0.0272,
+    "normal_vs_injection_cohens_d": 0.1469,
+    "normal_vs_attack_p_value": 0.0101,
+    "normal_vs_injection_p_value": 1.670191637093536e-20
   }
 }
