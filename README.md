@@ -222,6 +222,9 @@ ambient-iot-pipeline/
 │   ├── meetings/              # Supervisor meeting log
 │   └── screenshots/           # Deployment and evaluation evidence
 │
+├── analysis/
+│   └── clean_dataset_calibration.ipynb  # Calibration against real greenhouse/TON_IoT telemetry + threat-model grounding
+│
 ├── scripts/
 │   ├── run_pipeline.py            # Local broker, baseline config
 │   ├── run_pipeline_aws.py        # AWS IoT Core, baseline config
@@ -295,9 +298,8 @@ MAX([Battery Co2 Saved G])
 ```
 
 **Dashboard pages:**
-- Strategic Health - active tags, zone temperature averages, alert KPIs
-- Infrastructure Performance - latency over time, throughput, packet loss rate
-- Security Posture - classification breakdown, rejection rates by category
+- Ambient IoT - Strategic Asset Health - alert and CO2-saved KPIs, latency KPI, zone temperature trend, alerts by day, classification breakdown
+- Security & Infrastructure - rogue-rejection and catch-rate KPIs, latency over time, live AWS run view, security posture breakdown
 
 ---
 
