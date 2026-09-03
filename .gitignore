@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 infra/env/
 infra/certs/
+infra/aws_config.json
 
 # Tableau temp/recovery files
 bi/~*.twbr

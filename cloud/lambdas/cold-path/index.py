@@ -137,7 +137,7 @@ def _write_csv(summaries: list[dict], output_path: Path) -> None:
 
 def _write_s3(summaries: list[dict]) -> str:
     """Write aggregated CSV to S3 cold store. Returns the S3 key."""
-    bucket  = os.environ.get("S3_BUCKET", "aiot-cold-store-255195626087")
+    bucket  = os.environ.get("S3_BUCKET", "aiot-cold-store-<ACCOUNT_ID>")
     s3      = boto3.client("s3", region_name="eu-west-2")
     date    = datetime.now(timezone.utc).strftime("%Y/%m/%d")
     ts      = datetime.now(timezone.utc).strftime("%H%M%S")

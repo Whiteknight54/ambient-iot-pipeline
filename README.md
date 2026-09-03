@@ -87,6 +87,16 @@ python -m pip install -r requirements.txt
 
 Requires Python 3.10 or later.
 
+Alternatively, run the bootstrap script for your platform to create a `.venv` and install everything in one step:
+
+```bash
+scripts/bootstrap.sh          # macOS / Linux
+```
+
+```powershell
+scripts\bootstrap.ps1         # Windows
+```
+
 ### 2. Run the tests
 
 ```bash
@@ -226,9 +236,11 @@ ambient-iot-pipeline/
 │   └── clean_dataset_calibration.ipynb  # Calibration against real greenhouse/TON_IoT telemetry + threat-model grounding
 │
 ├── scripts/
-│   ├── run_pipeline.py            # Local broker, baseline config
-│   ├── run_pipeline_aws.py        # AWS IoT Core, baseline config
-│   └── run_pipeline_aws_stress.py # AWS IoT Core, stress config
+│   ├── bootstrap.sh                # venv setup (macOS/Linux)
+│   ├── bootstrap.ps1               # venv setup (Windows)
+│   ├── run_pipeline.py             # Local broker, baseline config
+│   ├── run_pipeline_aws.py         # AWS IoT Core, baseline config
+│   └── run_pipeline_aws_stress.py  # AWS IoT Core, stress config
 │
 └── pytest.ini                 # Test runner config
 ```

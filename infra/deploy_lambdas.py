@@ -71,7 +71,7 @@ def run() -> None:
         return
 
     cfg = json.loads(CONFIG.read_text())
-    s3_bucket  = cfg.get("s3_bucket",      "aiot-cold-store-255195626087")
+    s3_bucket  = cfg.get("s3_bucket",      "aiot-cold-store-<ACCOUNT_ID>")
     ddb_table  = cfg.get("dynamodb_table", "aiot-telemetry")
 
     lam = boto3.client("lambda", region_name=REGION)

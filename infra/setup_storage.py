@@ -26,7 +26,7 @@ import boto3
 from botocore.exceptions import ClientError
 
 REGION         = "eu-west-2"
-S3_BUCKET      = "aiot-cold-store-255195626087"   # must be globally unique
+S3_BUCKET      = "aiot-cold-store-<ACCOUNT_ID>"   # must be globally unique
 DYNAMODB_TABLE = "aiot-telemetry"
 CONFIG_PATH    = Path(__file__).parent / "aws_config.json"
 
