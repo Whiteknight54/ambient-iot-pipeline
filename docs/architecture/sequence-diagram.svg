@@ -1,1 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><rect width="100%" height="100%" fill="#f4f4f4"/><text x="40" y="80" font-family="Arial" font-size="28">Sequence diagram placeholder</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="930" viewBox="0 0 1240 930" font-family="Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest"><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo5MDBiMWI1My1kODVjLTQxNDUtYTUzMi1lZTlhNTJiNDQyODUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaCZ0n/uKd+XK2DZa3P/H93AAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo3MmY2MWVkOS05NjdhLTRkMTItYmVjZC01MGQ0OWQ0MjQ5ZTZscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo3xl1/0WnLtL5WMdY7ToYZwAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgghY13gqADfsALaf+Lc62B3lMUoNpHWSbmrZ+sMvtB/vWkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaGtbh89lNOA7d2Vll3YQBYAAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCC1El1h1cYIQWw9eTSj9l02MTFOz3zpLpEpa/8fhBlrY2RuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjDZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjkwMGIxYjUzLWQ4NWMtNDE0NS1hNTMyLWVlOWE1MmI0NDI4NS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOjE3ZTkwYWVlLTdmZjMtNDM4Ny1iYzQ4LWIwNDQ1YTJlMGYxNnJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCFjXeCoAN+wAtp/4tzrYHeUxSg2kdZJuatn6wy+0H+9aJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggoywPNdYqqfTHs50QQO4HNforynO1u/lwOKYg6mUYtwSiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggd3q7SuOs4cUZETkG/xzQCFh/NILgAMp5Vj6bYiTOYtl0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQGfZXa/gz5mjw5xB1dHUgriylo52I3qBDbDONWUNNRCuVdAKUdeOU5jc57wKbOJW6ADVNxXCNSRqL3ttkpALNm4=</c2pa:manifest></metadata>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<defs>
+  <marker id="s" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#26415e"/></marker>
+  <marker id="r" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#b03030"/></marker>
+</defs>
+
+<text x="620" y="30" font-size="16" font-weight="bold" text-anchor="middle">Message authentication sequence at the edge gateway</text>
+
+<!-- lifelines -->
+<rect x="45" y="58" width="185" height="52" rx="4" fill="#eef2f7" stroke="#2f5d8a"/>
+<text x="137" y="79" font-size="12.5" font-weight="bold" text-anchor="middle">Legitimate tag</text>
+<text x="137" y="97" font-size="10.5" fill="#555" text-anchor="middle">tag_simulator.py</text>
+
+<rect x="262" y="58" width="185" height="52" rx="4" fill="#fdf1f1" stroke="#b03030"/>
+<text x="354" y="79" font-size="12.5" font-weight="bold" fill="#b03030" text-anchor="middle">Adversary</text>
+<text x="354" y="97" font-size="10.5" fill="#b03030" text-anchor="middle">injector functions</text>
+
+<rect x="500" y="58" width="200" height="52" rx="4" fill="#eef5ee" stroke="#2d6a2d"/>
+<text x="600" y="79" font-size="12.5" font-weight="bold" text-anchor="middle">Edge gateway</text>
+<text x="600" y="97" font-size="10.5" fill="#555" text-anchor="middle">auth_bridge.py</text>
+
+<rect x="760" y="58" width="180" height="52" rx="4" fill="#f2f0f8" stroke="#5a4b8a"/>
+<text x="850" y="79" font-size="12.5" font-weight="bold" text-anchor="middle">AWS IoT Core</text>
+<text x="850" y="97" font-size="10.5" fill="#555" text-anchor="middle">MQTT broker</text>
+
+<rect x="1000" y="58" width="185" height="52" rx="4" fill="#f2f0f8" stroke="#5a4b8a"/>
+<text x="1092" y="79" font-size="12.5" font-weight="bold" text-anchor="middle">Data stores</text>
+<text x="1092" y="97" font-size="10.5" fill="#555" text-anchor="middle">DynamoDB / S3</text>
+
+<line x1="137" y1="110" x2="137" y2="790" stroke="#aab" stroke-dasharray="5,4"/>
+<line x1="354" y1="110" x2="354" y2="790" stroke="#d9a" stroke-dasharray="5,4"/>
+<line x1="600" y1="110" x2="600" y2="790" stroke="#aab" stroke-dasharray="5,4"/>
+<line x1="850" y1="110" x2="850" y2="790" stroke="#aab" stroke-dasharray="5,4"/>
+<line x1="1092" y1="110" x2="1092" y2="790" stroke="#aab" stroke-dasharray="5,4"/>
+
+<rect x="592" y="150" width="16" height="600" fill="#dcead9" stroke="#2d6a2d"/>
+
+<!-- 1 sign -->
+<rect x="52" y="128" width="330" height="34" rx="3" fill="#f7f8fa" stroke="#bbb"/>
+<text x="62" y="149" font-size="11.5">1. Serialise canonical body, compute mac over it</text>
+
+<!-- 2 send -->
+<line x1="137" y1="185" x2="588" y2="185" stroke="#26415e" stroke-width="1.6" marker-end="url(#s)"/>
+<text x="150" y="180" font-size="11.5">2. Report {id, zone, metric, value, ts, mac}</text>
+<text x="150" y="199" font-size="10" fill="#666">mac = HMAC-SHA256(psk, json.dumps(body, sort_keys=True, separators=(",",":")))</text>
+
+<!-- 0 parse -->
+<line x1="608" y1="228" x2="655" y2="228" stroke="#26415e" stroke-width="1.4" marker-end="url(#s)"/>
+<rect x="660" y="210" width="450" height="40" rx="3" fill="#fff" stroke="#888"/>
+<text x="670" y="228" font-size="11.5" font-weight="bold">3. Parse — is a tag id present?</text>
+<text x="670" y="244" font-size="10.5" fill="#555">absent → MalformedPacketError, rejected_malformed++</text>
+
+<!-- identity -->
+<line x1="608" y1="298" x2="655" y2="298" stroke="#26415e" stroke-width="1.4" marker-end="url(#s)"/>
+<rect x="660" y="280" width="450" height="40" rx="3" fill="#fff" stroke="#888"/>
+<text x="670" y="298" font-size="11.5" font-weight="bold">4. Identity — is tag id in the key registry?</text>
+<text x="670" y="314" font-size="10.5" fill="#555">unknown → no key material exists to test against</text>
+
+<!-- rogue -->
+<line x1="354" y1="350" x2="588" y2="350" stroke="#b03030" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#r)"/>
+<text x="120" y="345" font-size="11.5" fill="#b03030">inject_rogue_packet — unregistered id</text>
+<rect x="622" y="366" width="330" height="26" rx="3" fill="#fdf1f1" stroke="#b03030"/>
+<text x="632" y="384" font-size="11.5" font-weight="bold" fill="#b03030">UnknownTagError raised · rejected_unknown_tag++</text>
+
+<!-- integrity -->
+<line x1="608" y1="432" x2="655" y2="432" stroke="#26415e" stroke-width="1.4" marker-end="url(#s)"/>
+<rect x="660" y="410" width="470" height="58" rx="3" fill="#fff" stroke="#888"/>
+<text x="670" y="428" font-size="11.5" font-weight="bold">5. Integrity — recompute mac over the same canonical body</text>
+<text x="670" y="445" font-size="10.5" fill="#555">hmac.compare_digest(expected, supplied) — constant time</text>
+<text x="670" y="460" font-size="10.5" fill="#555">canonicalisation duplicated both sides, mirroring separate hardware</text>
+
+<!-- spoofed + tampered -->
+<line x1="354" y1="505" x2="588" y2="505" stroke="#b03030" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#r)"/>
+<text x="88" y="500" font-size="11.5" fill="#b03030">inject_spoofed_packet — valid id, wrong key</text>
+<line x1="354" y1="538" x2="588" y2="538" stroke="#b03030" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#r)"/>
+<text x="83" y="533" font-size="11.5" fill="#b03030">inject_tampered_packet — value altered after signing</text>
+<rect x="622" y="554" width="330" height="26" rx="3" fill="#fdf1f1" stroke="#b03030"/>
+<text x="632" y="572" font-size="11.5" font-weight="bold" fill="#b03030">AuthenticationError raised · rejected_bad_auth++</text>
+
+<!-- rebuild -->
+<line x1="608" y1="620" x2="655" y2="620" stroke="#26415e" stroke-width="1.4" marker-end="url(#s)"/>
+<rect x="660" y="598" width="470" height="58" rx="3" fill="#eef5ee" stroke="#2d6a2d"/>
+<text x="670" y="616" font-size="11.5" font-weight="bold">6. Accept — rebuild payload from six named fields</text>
+<text x="670" y="633" font-size="10.5" fill="#555">tag_id · zone · metric · value · tag_ts · gateway_ts</text>
+<text x="670" y="648" font-size="10.5" fill="#555">mac is never copied forward — it authenticates the tag to the gateway only</text>
+
+<!-- publish -->
+<line x1="608" y1="690" x2="846" y2="690" stroke="#26415e" stroke-width="1.6" marker-end="url(#s)"/>
+<text x="618" y="685" font-size="11.5">7. Publish to aiot/telemetry/{zone}/{tag_id} — mutual TLS, TCP 8883</text>
+
+<line x1="850" y1="725" x2="1088" y2="725" stroke="#26415e" stroke-width="1.4" marker-end="url(#s)"/>
+<text x="862" y="720" font-size="11.5">8. Hot path → DynamoDB</text>
+<line x1="850" y1="760" x2="1088" y2="760" stroke="#26415e" stroke-width="1.4" marker-end="url(#s)"/>
+<text x="862" y="755" font-size="11.5">9. Cold path → S3 (CSV)</text>
+
+<!-- note -->
+<rect x="45" y="808" width="1145" height="102" rx="4" fill="#f7f8fa" stroke="#ccc"/>
+<text x="60" y="830" font-size="12" font-weight="bold">Why rejection belongs here rather than downstream</text>
+<text x="60" y="851" font-size="11.5">A rejected message is never transmitted, never billed, never stored and never indexed. Identity is checked before integrity so that an</text>
+<text x="60" y="870" font-size="11.5">unrecognised device costs no cryptographic work. Anomaly classifiers trained on datasets such as ToN_IoT can flag compromised</text>
+<text x="60" y="889" font-size="11.5">deployments with reasonable accuracy, but act retrospectively: the message has already been ingested and charged for. The argument</text>
+<text x="60" y="905" font-size="11.5">for edge rejection is therefore one of cost and timing, not of detectability.</text>
+</svg>
