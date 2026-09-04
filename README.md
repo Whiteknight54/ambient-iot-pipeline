@@ -347,4 +347,4 @@ Full reference list in the dissertation report.
 | - | 21/21 tests passing | Complete |
 | - | Evaluation metrics captured at two scales | Complete |
 | - | Terraform IaC | Not implemented - see future work |
-| - | Dissertation report | In progress |
+| - | Dissertation report | Complete |
