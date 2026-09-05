@@ -318,6 +318,7 @@ MAX([Battery Co2 Saved G])
 ## Key References
 
 - 3GPP (2025) *Release 19: Ambient IoT for 5G-Advanced*
+- Abdullah, W.D. and Lifta, M.I. (2024) *IoT Agriculture 2024* [Dataset]. Kaggle.
 - Alsaedi, A., Moustafa, N., Tari, Z., Mahmood, A. and Anwar, A. (2020) 'TON_IoT telemetry dataset', *IEEE Access*, 8, pp. 165130-165150. doi:10.1109/ACCESS.2020.3022862
 - An, Y., Park, H. and Lee, W. (2023) 'Signal strength balanced scheduling for secure ambient backscatter networks', *ICOIN 2023*, pp. 56-61. doi:10.1109/ICOIN56518.2023.10049059
 - Hussein, N. and Nhlabatsi, A. (2022) 'Living in the dark: MQTT-based exploitation of IoT security vulnerabilities in ZigBee networks', *IoT*, 3(4)
