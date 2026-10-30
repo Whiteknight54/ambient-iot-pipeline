@@ -4,7 +4,7 @@
 
 MSc Information Technology - UFCF9Y-60-M CSCT Masters Project
 Student: Oyinlayefa Mezeh (25053829) | University of the West of England, Bristol
-Supervisor: Dr. Odayne Haughton | Submission: 3 September 2026
+Supervisor: Dr. Odayne Haughton |
 
 ---
 
